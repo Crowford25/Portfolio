@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { type ComponentType, type SVGProps, useState } from 'react'
+import { Code, Cpu, Database, Layers, Rocket, Sparkles } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 
 type SkillCard = {
@@ -8,50 +9,57 @@ type SkillCard = {
   summary: string
   detail: string
   accent: string
+  icon: ComponentType<SVGProps<SVGSVGElement>>
 }
 
 const skillCards: SkillCard[] = [
   {
     id: 1,
-    title: 'Motion-first interfaces',
-    summary: 'Cinematic transitions that make every interaction feel intentional.',
-    detail: 'Scroll choreography, layered reveals, and tactile micro-interactions designed to guide attention without noise.',
+    title: 'Java',
+    summary: 'Robust object-oriented architecture for scalable systems.',
+    detail: 'Enterprise-grade Java applications with clean code, modular services, and strong type discipline.',
     accent: 'from-cyan-400/20 to-sky-500/20',
+    icon: Cpu,
   },
   {
     id: 2,
-    title: 'Design systems',
-    summary: 'A consistent visual language that scales from concept to launch.',
-    detail: 'Reusable UI patterns, polished tokens, and flexible layouts that keep the experience premium across breakpoints.',
+    title: 'ZK Framework',
+    summary: 'Server-driven UI development with interactive Java components.',
+    detail: 'Building modern business apps with ZK component flows, real-time updates, and polished interactions.',
     accent: 'from-fuchsia-400/20 to-violet-500/20',
+    icon: Layers,
   },
   {
     id: 3,
-    title: 'High-performance builds',
-    summary: 'Fast, lightweight experiences built for delight and durability.',
-    detail: 'Optimized rendering, responsive architecture, and efficient motion that keeps sites feeling instant.',
+    title: 'Database',
+    summary: 'Reliable data modelling and optimized persistence layers.',
+    detail: 'Schema design, query tuning, and data integrity practices for resilient backend systems.',
     accent: 'from-emerald-400/20 to-cyan-500/20',
+    icon: Database,
   },
   {
     id: 4,
-    title: 'Accessible storytelling',
-    summary: 'Narratives that feel elegant, inclusive, and easy to follow.',
-    detail: 'Clear hierarchy, readable motion, and thoughtful focus states that make the experience feel effortless.',
-    accent: 'from-amber-400/20 to-orange-500/20',
+    title: 'React + TypeScript',
+    summary: 'Typed front-end architecture for expressive, maintainable apps.',
+    detail: 'Composable components, strict typings, and responsive UI patterns built for product velocity.',
+    accent: 'from-sky-400/20 to-blue-500/20',
+    icon: Code,
   },
   {
     id: 5,
-    title: 'React + TypeScript',
-    summary: 'Typed interfaces that turn ideas into resilient product experiences.',
-    detail: 'Structured components and composable logic that make iteration smooth and future-proof.',
-    accent: 'from-sky-400/20 to-blue-500/20',
+    title: 'More & more',
+    summary: 'Expanding capability across design, platform, and collaboration.',
+    detail: 'A broad toolkit for building experiences that scale from idea to polished delivery.',
+    accent: 'from-amber-400/20 to-orange-500/20',
+    icon: Sparkles,
   },
   {
     id: 6,
-    title: 'Product thinking',
-    summary: 'A strategy-first approach that frames visuals around user momentum.',
-    detail: 'Every motion and layout decision is shaped around clarity, conversion, and emotional resonance.',
-    accent: 'from-rose-400/20 to-pink-500/20',
+    title: 'Performance & Scale',
+    summary: 'Fast, reliable experiences engineered for real-world use.',
+    detail: 'Optimised rendering, efficient state management, and scalable deployment pipelines.',
+    accent: 'from-violet-400/20 to-indigo-500/20',
+    icon: Rocket,
   },
 ]
 
@@ -76,8 +84,8 @@ const SkillsSection = () => {
         >
           <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="text-sm uppercase tracking-[0.35em] text-cyan-300/80">How I work</p>
-              <h3 className="mt-2 text-xl font-semibold text-white">An infinite carousel of ideas, motion, and craft.</h3>
+              <p className="text-sm uppercase tracking-[0.35em] text-cyan-300/80">Skills</p>
+              <h3 className="mt-2 text-xl font-semibold text-white">Skill Set Used</h3>
             </div>
           </div>
 
@@ -102,7 +110,9 @@ const SkillsSection = () => {
                       className="absolute inset-0 h-full w-full [transform-style:preserve-3d]"
                     >
                       <div className="absolute inset-0 flex h-full flex-col justify-between rounded-[24px] border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.03] p-5 [backface-visibility:hidden]">
-                        <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${skill.accent} ring-1 ring-white/10`} />
+                        <div className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${skill.accent} ring-1 ring-white/10`}>
+                        <skill.icon className="h-6 w-6 text-white" />
+                      </div>
                         <div>
                           <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Capability</p>
                           <h4 className="mt-2 text-lg font-semibold text-white">{skill.title}</h4>

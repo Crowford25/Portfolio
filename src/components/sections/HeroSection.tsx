@@ -29,7 +29,7 @@ const HeroSection = () => {
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300/90 sm:text-xl">
             I build polished product sites, interactive portfolios, and immersive launch experiences for ambitious brands.
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
             <GradientButton href="#projects">View Featured Work</GradientButton>
             <GradientButton href="#contact" variant="secondary">Let’s Talk</GradientButton>
           </div>
