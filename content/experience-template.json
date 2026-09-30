@@ -1,0 +1,17 @@
+{
+  "company": "Your actual company",
+  "role": "Your actual current role",
+  "period": "Your actual dates",
+  "description": "What you build and contribute, described accurately.",
+  "tools": [
+    "Technology you use"
+  ],
+  "progression": [
+    {
+      "role": "Your earlier role, if relevant",
+      "period": "Your actual dates",
+      "description": "A short description of this stage."
+    }
+  ],
+  "isExample": true
+}

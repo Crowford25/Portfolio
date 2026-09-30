@@ -1,0 +1,49 @@
+/* Source-inspired Client module presentation; all displayed records are samples. */
+.fyp-project-preview{container-type:inline-size;width:100%;max-width:1080px;min-width:0;margin:0 auto;background:#fff;color:#213b56;border:1px solid #d0dcea;border-radius:10px;overflow:hidden;text-align:left;font-family:Arial,Helvetica,sans-serif;box-shadow:0 12px 28px #2d4d6c0b}
+.fyp-preview-masthead{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:63px;padding:16px 23px;border-bottom:1px solid #e4ebf3;background:#fff}
+.fyp-preview-brand{display:flex;flex-direction:column;gap:3px;color:#0056b3;line-height:1}
+.fyp-preview-brand strong{font-size:20px;letter-spacing:.12em;font-weight:750}
+.fyp-preview-brand>span{font-size:8px;letter-spacing:.18em}
+.fyp-preview-portal{font-size:9px;letter-spacing:.08em;color:#637b93;white-space:nowrap}
+.fyp-preview-body{display:grid;grid-template-columns:1.15fr .85fr;gap:0}
+.fyp-preview-booking{min-width:0;padding:25px 26px 20px}
+.fyp-preview-eyebrow{font-size:9px;font-weight:650;letter-spacing:.09em;color:#607d98;line-height:1.5;display:block}
+.fyp-preview-title{font-size:30px;font-weight:550;letter-spacing:-.035em;line-height:1.12;margin:10px 0 20px;color:#163d66}
+.fyp-preview-steps{list-style:none;display:flex;gap:12px;justify-content:space-between;align-items:center;padding:0 0 18px;margin:0;border-bottom:1px solid #e5edf4}
+.fyp-preview-steps li{display:flex;align-items:center;gap:7px;color:#6b8094;font-size:11px;white-space:nowrap}
+.fyp-preview-steps li>span{display:grid;place-items:center;width:23px;height:23px;border:1px solid #d6e2ef;border-radius:50%;font-size:9px;background:#f8fafc}
+.fyp-preview-steps .fyp-preview-current{color:#0056b3;font-weight:650}
+.fyp-preview-steps .fyp-preview-current>span{background:#0056b3;border-color:#0056b3;color:#fff}
+.fyp-preview-selection{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px 0}
+.fyp-preview-selection>div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.fyp-preview-selection span{font-size:8px;letter-spacing:.08em;color:#647b91}
+.fyp-preview-selection strong{font-size:12px;font-weight:550;color:#294b6d}
+.fyp-preview-doctor{display:flex;align-items:center;gap:10px;border:1px solid #dce7f1;border-radius:7px;padding:12px;background:#f8fbfe}
+.fyp-preview-avatar{flex-shrink:0;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:#dfebf7;color:#306294;font-size:10px;font-weight:600}
+.fyp-preview-doctor>div{min-width:0;flex:1}
+.fyp-preview-doctor strong{display:block;font-size:12px;font-weight:550;margin-bottom:4px}
+.fyp-preview-doctor>div>span{display:block;font-size:9px;line-height:1.5;color:#647d95}
+.fyp-preview-slot-note{font-size:8px;color:#426b51;background:#e7f1e9;border-radius:12px;padding:4px 7px;white-space:nowrap}
+.fyp-preview-times{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:15px}
+.fyp-preview-times>span{font-size:10px;color:#627c94}
+.fyp-preview-times>div{display:flex;gap:6px}
+.fyp-preview-times>div>span{display:block;border:1px solid #e1e9f2;border-radius:4px;padding:7px 9px;font-size:10px;color:#617a91}
+.fyp-preview-times>div>.fyp-preview-selected-time{color:#0056b3;background:#eaf3fc;border-color:#93b9de;font-weight:600}
+.fyp-preview-booking-note{font-size:9px;line-height:1.6;color:#7c8ea1;margin:15px 0 0}
+.fyp-preview-account{padding:26px 24px 21px;background:#f1f6fb;border-left:1px solid #e0e9f3;min-width:0;display:flex;flex-direction:column}
+.fyp-preview-account-title{font-size:22px;line-height:1.25;letter-spacing:-.025em;margin:9px 0 17px;color:#234b73;max-width:200px}
+.fyp-preview-account-links{display:grid;gap:0}
+.fyp-preview-account-links>div{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #dce6f0;min-width:0}
+.fyp-preview-link-number{font-size:9px;flex-shrink:0;color:#84a0ba}
+.fyp-preview-account-links strong{display:block;font-size:12px;font-weight:550;color:#31577e;margin-bottom:4px}
+.fyp-preview-account-links div>span:not(.fyp-preview-link-number){display:block;font-size:10px;line-height:1.5;color:#6f8295}
+.fyp-preview-credit{padding-top:19px;margin-top:auto;display:flex;flex-direction:column;gap:6px}
+.fyp-preview-credit>span{font-size:8px;font-weight:650;letter-spacing:.1em;color:#667e94}
+.fyp-preview-credit>strong{font-size:14px;font-weight:550;color:#28557f}
+.fyp-preview-credit>small{font-size:10px;line-height:1.5;color:#6d8194}
+.fyp-project-preview>figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:7px 16px;padding:12px 22px;background:#e8f0f8;border-top:1px solid #dae5f0;color:#526e88;font-size:9px;line-height:1.5}
+.secondary-visual:has(>.fyp-project-preview){padding:26px;background:#e5edf3}
+.case-visual:has(>.fyp-project-preview){padding:38px max(23px,calc((100vw - 1180px)/2));background:#e6edf3}
+@container(max-width:620px){.fyp-preview-body{grid-template-columns:1fr}.fyp-preview-booking{padding:22px}.fyp-preview-title{font-size:29px}.fyp-preview-account{border-left:0;border-top:1px solid #e0e9f3;padding:20px 22px}.fyp-preview-account-title{font-size:21px;max-width:none;margin-bottom:8px}.fyp-preview-account-links{grid-template-columns:1fr 1fr;gap:0 15px}.fyp-preview-credit{margin-top:15px;padding-top:0;display:grid;grid-template-columns:auto 1fr;gap:5px 15px;align-items:baseline}.fyp-preview-credit>small{grid-column:1/-1}.fyp-preview-credit>strong{font-size:12px}}
+@container(max-width:350px){.fyp-preview-masthead{padding:14px 16px}.fyp-preview-brand strong{font-size:18px}.fyp-preview-portal{font-size:8px}.fyp-preview-booking{padding:20px 16px}.fyp-preview-steps{gap:8px}.fyp-preview-steps li{gap:5px;font-size:10px}.fyp-preview-times{align-items:flex-start;flex-direction:column;gap:8px}.fyp-preview-times>div{width:100%;gap:8px}.fyp-preview-times>div>span{flex:1;text-align:center}.fyp-preview-account{padding:18px 16px}.fyp-preview-account-links{gap:0 12px}.fyp-preview-account-links>div{gap:7px}.fyp-preview-account-links div>span:not(.fyp-preview-link-number){font-size:9px}.fyp-project-preview>figcaption{padding:11px 16px;font-size:9px}}
+@media(max-width:680px){.secondary-visual:has(>.fyp-project-preview){padding:17px}.case-visual:has(>.fyp-project-preview){padding:25px 16px}}

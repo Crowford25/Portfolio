@@ -1,0 +1,106 @@
+async (page) => {
+  const checks=[];
+  const errors=[];
+  page.on('pageerror',error=>errors.push(error.message));
+  function check(name,passed,detail=''){checks.push({name,passed,detail});if(!passed)throw new Error(`${name}: ${detail}`);}
+  await page.goto('http://127.0.0.1:3018');
+  await page.evaluate(()=>document.fonts.ready);
+  for(const width of [320,375,390,680,768,900,1024,1440,1920]){
+    await page.setViewportSize({width,height:900});
+    check(`No overflow at ${width}px`,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+  }
+  await page.setViewportSize({width:1440,height:1000});
+  const hero=page.locator('.hero-study');
+  const height=await hero.locator('.perspective-stage').evaluate(el=>el.getBoundingClientRect().height);
+  await hero.getByRole('button',{name:'system',exact:true}).click();
+  check('Hero system selected',await hero.getByRole('button',{name:'system',exact:true}).getAttribute('aria-pressed')==='true');
+  check('Mode change reserves layout',Math.abs(height-await hero.locator('.perspective-stage').evaluate(el=>el.getBoundingClientRect().height))<1);
+  await page.screenshot({path:'output/playwright/refined-system-desktop.png'});
+  await hero.getByRole('button',{name:'surface',exact:true}).click();
+  await page.getByRole('group',{name:'Product screens'}).getByRole('button',{name:'02 Bookings'}).click();
+  check('Booking story changes',await page.locator('.flagship-study').getByText('A welcome, well organised.').isVisible());
+  await page.getByRole('group',{name:'Product screens'}).getByRole('button',{name:'03 Calendar'}).click();
+  check('Calendar story changes',await page.locator('.flagship-study').getByText('Room for what’s next.').isVisible());
+  await page.locator('.flagship-study').getByRole('button',{name:'system',exact:true}).click();
+  check('Flagship technical flow',await page.locator('.flagship-study .system-layer').getByText('Authentication',{exact:true}).isVisible());
+  await page.locator('.flagship-sticky').screenshot({path:'output/playwright/refined-flagship-system.png'});
+  await page.locator('.flagship-study').getByRole('button',{name:'surface',exact:true}).click();
+  await page.locator('.story-chapter').nth(0).scrollIntoViewIfNeeded();
+  await page.waitForTimeout(1700);
+  await page.locator('.story-chapter').nth(2).scrollIntoViewIfNeeded();
+  await page.waitForTimeout(250);
+  check('Scroll changes product chapter',await page.getByRole('group',{name:'Product screens'}).getByRole('button',{name:'03 Calendar'}).getAttribute('aria-pressed')==='true');
+  await page.getByRole('button',{name:'02 Connections'}).hover();
+  check('Workflow hover changes preview',await page.getByText('Better, connected.',{exact:true}).isVisible());
+  await page.locator('#about').evaluate(el=>scrollTo({top:el.offsetTop+140,behavior:'instant'}));
+  await page.waitForTimeout(350);
+  check('Header adapts to About',await page.locator('.refined-header').evaluate(el=>el.classList.contains('over-dark')));
+  await page.locator('.capability-trigger').nth(1).hover();
+  check('Desktop capability expands on hover',await page.locator('.capability-trigger').nth(1).getAttribute('aria-expanded')==='true');
+  await page.locator('.technical-rows summary').nth(1).click();
+  check('Technical disclosure',await page.locator('.technical-rows details').nth(1).getAttribute('open')!==null);
+  const slider=page.getByRole('slider',{name:'Idea to product stage'});
+  await slider.focus();
+  await page.keyboard.press('End');
+  check('Experiment keyboard reaches Product',await slider.getAttribute('aria-valuetext')==='Product');
+  await page.locator('.study-stage-nav button').nth(1).click();
+  check('Experiment buttons are an alternative',await slider.getAttribute('aria-valuetext')==='Interface');
+  check('Correct email',await page.getByRole('link',{name:'Email me',exact:true}).getAttribute('href')==='mailto:zisonwong25@gmail.com');
+  check('Correct WhatsApp', (await page.getByRole('link',{name:'WhatsApp',exact:true}).getAttribute('href')).startsWith('https://wa.me/601133170919'));
+  await page.context().grantPermissions(['clipboard-read','clipboard-write']);
+  await page.getByRole('button',{name:'Copy email address'}).click();
+  await page.getByRole('status').filter({hasText:'Email copied'}).waitFor();
+  check('Copy email still works',await page.evaluate(()=>navigator.clipboard.readText())==='zisonwong25@gmail.com');
+  await page.setViewportSize({width:390,height:844});
+  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
+  await page.getByRole('button',{name:'Menu',exact:true}).click();
+  const menu=page.getByRole('dialog',{name:'Navigation menu'});
+  check('Full-screen mobile menu',await menu.isVisible());
+  await menu.screenshot({path:'output/playwright/refined-menu.png'});
+  check('Menu locks background scrolling',await page.evaluate(()=>document.body.style.overflow)==='hidden');
+  await page.keyboard.press('Escape');
+  check('Escape closes menu',!(await menu.isVisible()));
+  check('Menu restores focus',await page.getByRole('button',{name:'Menu',exact:true}).evaluate(el=>el===document.activeElement));
+  await page.getByRole('button',{name:'Menu',exact:true}).click();
+  await page.getByRole('navigation',{name:'Mobile navigation'}).getByRole('link',{name:'03 Capabilities'}).click();
+  await page.waitForURL('**/#capabilities');
+  check('Menu selection closes overlay',!(await menu.isVisible()));
+  const capability=page.locator('.capability-trigger').nth(2);
+  await capability.click();
+  check('Touch capability opens',await capability.getAttribute('aria-expanded')==='true');
+  check('Single open capability',await page.locator('.capability-trigger[aria-expanded="true"]').count()===1);
+  await page.locator('.flagship-study').scrollIntoViewIfNeeded();
+  await page.getByRole('group',{name:'Product screens'}).getByRole('button',{name:'01 Overview'}).click();
+  const target=page.locator('.flagship-study .perspective-stage');
+  const box=await target.boundingBox();
+  await page.mouse.move(box.x+box.width*.8,box.y+box.height*.45);
+  await page.mouse.down();
+  await page.mouse.move(box.x+box.width*.2,box.y+box.height*.45,{steps:8});
+  await page.mouse.up();
+  check('Mobile swipe advances screen',await page.getByRole('group',{name:'Product screens'}).getByRole('button',{name:'02 Bookings'}).getAttribute('aria-pressed')==='true');
+  await page.getByRole('button',{name:'Next product screen'}).click();
+  check('Mobile buttons advance screen',await page.getByRole('group',{name:'Product screens'}).getByRole('button',{name:'03 Calendar'}).getAttribute('aria-pressed')==='true');
+  await page.locator('.flagship-sticky').screenshot({path:'output/playwright/refined-mobile-calendar.png'});
+  await hero.getByRole('button',{name:'system',exact:true}).click();
+  await hero.screenshot({path:'output/playwright/refined-mobile-system.png'});
+  await page.setViewportSize({width:844,height:390});
+  check('Landscape has no overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+  await page.emulateMedia({reducedMotion:'reduce'});
+  check('Reduced motion scroll behavior',await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior)==='auto');
+  check('Reduced motion removes morph transition',await hero.locator('.system-layer').evaluate(el=>getComputedStyle(el).transitionDuration)==='0s');
+  for(const slug of ['booking-platform','brand-website','operations-tool']){
+    const response=await page.goto(`http://127.0.0.1:3018/work/${slug}`);
+    await page.setViewportSize({width:375,height:812});
+    check(`${slug} page remains available`,response.status()===200);
+    check(`${slug} mobile fits`,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+  }
+  const response=await page.goto('http://127.0.0.1:3018/work/missing');
+  check('404 preserved',response.status()===404);
+  await page.goto('http://127.0.0.1:3018');
+  await page.emulateMedia({reducedMotion:'no-preference'});
+  await page.setViewportSize({width:1440,height:1000});
+  check('No runtime errors',errors.length===0,errors.join('; '));
+  return checks;
+}
+
+

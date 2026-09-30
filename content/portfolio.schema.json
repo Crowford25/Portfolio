@@ -1,0 +1,424 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Wong Chee Chun’s portfolio content",
+  "type": "object",
+  "required": [
+    "profile",
+    "projects",
+    "services",
+    "capabilities",
+    "process"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "profile": {
+      "type": "object",
+      "required": [
+        "name",
+        "shortName",
+        "role",
+        "location",
+        "email",
+        "whatsapp",
+        "availability",
+        "intro",
+        "about",
+        "approach",
+        "resumeUrl",
+        "githubUrl",
+        "linkedinUrl"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Your full public name."
+        },
+        "shortName": {
+          "type": "string",
+          "description": "Name used in the WhatsApp greeting."
+        },
+        "role": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "whatsapp": {
+          "type": "string",
+          "pattern": "^[0-9]+$",
+          "description": "International number; digits only."
+        },
+        "availability": {
+          "type": "string"
+        },
+        "intro": {
+          "type": "string"
+        },
+        "about": {
+          "type": "string"
+        },
+        "approach": {
+          "type": "string"
+        },
+        "resumeUrl": {
+          "type": "string",
+          "description": "Keep empty until the updated PDF is ready. Then add public/Wong-Chee-Chun-Resume.pdf and set this to /Wong-Chee-Chun-Resume.pdf."
+        },
+        "githubUrl": {
+          "type": "string",
+          "description": "Optional public profile; leave empty to hide."
+        },
+        "linkedinUrl": {
+          "type": "string",
+          "description": "Optional public profile; leave empty to hide."
+        },
+        "interests": {
+          "$ref": "#/definitions/stringList"
+        }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "description": "One object per project. First project is featured. Order controls display order.",
+      "items": {
+        "type": "object",
+        "required": [
+          "slug",
+          "title",
+          "name",
+          "category",
+          "year",
+          "isExample",
+          "visual",
+          "image",
+          "imageAlt",
+          "summary",
+          "role",
+          "stack",
+          "problem",
+          "solution",
+          "features",
+          "engineering",
+          "learning",
+          "liveUrl",
+          "sourceUrl"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "description": "Unique URL path, e.g. inventory-manager."
+          },
+          "title": {
+            "type": "string",
+            "description": "The large case-study headline."
+          },
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "year": {
+            "type": "string"
+          },
+          "isExample": {
+            "type": "boolean",
+            "description": "Keep true for sample content. Set false only for real work."
+          },
+          "visual": {
+            "enum": [
+              "booking",
+              "editorial",
+              "operations"
+            ],
+            "description": "Illustrated fallback when image is empty."
+          },
+          "image": {
+            "type": "string",
+            "description": "Image path, e.g. /projects/dashboard.webp, or empty for the illustrated preview."
+          },
+          "preview": {
+            "enum": [
+              "hotel",
+              "fyp"
+            ],
+            "description": "Optional project-specific interface presentation: hotel for Aureum Stays, fyp for Final Year Project. Omit for generic previews."
+          },
+          "aliases": {
+            "$ref": "#/definitions/stringList",
+            "description": "Alternative project names or phrases the saved-answer chatbot can recognise."
+          },
+          "imageAlt": {
+            "type": "string",
+            "description": "A useful description of the screenshot."
+          },
+          "summary": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "stack": {
+            "$ref": "#/definitions/stringList"
+          },
+          "problem": {
+            "type": "string"
+          },
+          "solution": {
+            "type": "string"
+          },
+          "features": {
+            "$ref": "#/definitions/stringList"
+          },
+          "engineering": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "title",
+                "body"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "learning": {
+            "type": "string"
+          },
+          "liveUrl": {
+            "type": "string",
+            "description": "Real demo URL; leave empty to hide the button."
+          },
+          "sourceUrl": {
+            "type": "string",
+            "description": "Real repository URL; leave empty to hide the button."
+          },
+          "built": {
+            "type": "string"
+          },
+          "story": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "title",
+                "description"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "imageAlt": {
+                  "type": "string"
+                },
+                "imageCaption": {
+                  "type": "string",
+                  "description": "Optional caption for this actual project screen."
+                }
+              }
+            }
+          },
+          "architecture": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "title",
+                "detail"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "detail": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "integrations": {
+            "$ref": "#/definitions/stringList"
+          },
+          "contribution": {
+            "type": "string",
+            "description": "Your verified personal contribution; leave blank until supplied."
+          },
+          "outcome": {
+            "type": "string",
+            "description": "Verified result or delivery status. Do not invent metrics; leave blank until supplied."
+          },
+          "imageCaption": {
+            "type": "string",
+            "description": "Short caption for the captured project screen."
+          },
+          "gallery": {
+            "type": "array",
+            "description": "Additional real project screenshots shown in the case study.",
+            "items": {
+              "type": "object",
+              "required": [
+                "image",
+                "imageAlt"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "image": {
+                  "type": "string"
+                },
+                "imageAlt": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "homepageSummary": {
+            "type": "string",
+            "description": "One short homepage sentence. Full case-study content stays in the other project fields."
+          }
+        }
+      }
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "description",
+          "items"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "items": {
+            "$ref": "#/definitions/stringList"
+          }
+        }
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "items"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "items": {
+            "$ref": "#/definitions/stringList"
+          }
+        }
+      }
+    },
+    "process": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "description"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "career": {
+      "type": "array",
+      "description": "One chronological list for education, internships and employment, including each role’s responsibilities and tools.",
+      "items": {
+        "type": "object",
+        "required": [
+          "stage",
+          "title",
+          "period",
+          "organisation",
+          "verb",
+          "description",
+          "current",
+          "isPlaceholder"
+        ],
+        "properties": {
+          "stage": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "period": {
+            "type": "string"
+          },
+          "organisation": {
+            "type": "string"
+          },
+          "verb": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "current": {
+            "type": "boolean"
+          },
+          "isPlaceholder": {
+            "type": "boolean"
+          },
+          "field": {
+            "type": "string",
+            "description": "Field of study, visible on the timeline and on mobile."
+          },
+          "organisationShort": {
+            "type": "string",
+            "description": "Optional short timeline label, e.g. TAR UMT. Full organisation stays in the details."
+          },
+          "tools": {
+            "$ref": "#/definitions/stringList",
+            "description": "Verified technologies for this specific role. Shown with its responsibilities."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "stringList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "slug": "your-project-name",
+  "title": "A clear headline about what you built.",
+  "name": "Your project name",
+  "category": "Personal engineering project",
+  "year": "2026",
+  "isExample": true,
+  "visual": "operations",
+  "image": "",
+  "imageAlt": "",
+  "summary": "Who the project is for, what it does, and why it is useful.",
+  "role": "Your contribution",
+  "stack": [
+    "Next.js",
+    "React",
+    "TypeScript"
+  ],
+  "problem": "The real problem you wanted to solve.",
+  "solution": "Explain how the interface, application logic, data and integrations were implemented.",
+  "features": [
+    "Your first useful feature",
+    "Your second useful feature"
+  ],
+  "engineering": [
+    {
+      "title": "The key decision",
+      "body": "Explain the options, your choice, and the trade-off."
+    },
+    {
+      "title": "A technical challenge",
+      "body": "A real decision and its trade-offs."
+    }
+  ],
+  "learning": "One concrete lesson from this project.",
+  "liveUrl": "",
+  "sourceUrl": "",
+  "built": "The workflow you built",
+  "story": [
+    {
+      "title": "Overview",
+      "description": "The first product experience.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "title": "Workflow",
+      "description": "The next step in the user journey.",
+      "image": "",
+      "imageAlt": ""
+    }
+  ],
+  "architecture": [
+    {
+      "title": "Interface",
+      "detail": "Your frontend technology"
+    },
+    {
+      "title": "Application",
+      "detail": "Your core business rules"
+    },
+    {
+      "title": "API",
+      "detail": "Your data and integrations"
+    },
+    {
+      "title": "Database",
+      "detail": "Your data store"
+    }
+  ],
+  "integrations": [
+    "Your actual integrations"
+  ],
+  "contribution": "Describe your own responsibilities and work. Distinguish individual contributions from team work.",
+  "outcome": "Describe what was delivered or learned, supported by real evidence. Add metrics only if measured.",
+  "homepageSummary": "What you built, in one short sentence."
+}

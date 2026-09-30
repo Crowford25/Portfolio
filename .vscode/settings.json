@@ -1,0 +1,5 @@
+{
+  "json.schemas": [
+    { "fileMatch": ["/content/portfolio.json"], "url": "./content/portfolio.schema.json" }
+  ]
+}

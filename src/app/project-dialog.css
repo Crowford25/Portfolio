@@ -1,0 +1,73 @@
+/* Project detail stays above the current page, preserving its scroll position. */
+.project-actions button.text-link{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:0;border:0;border-bottom:1px solid currentColor;background:transparent;font-size:13px;font-weight:500;text-align:left;color:var(--ink);cursor:pointer}
+.project-actions button.text-link:hover{color:var(--orange-dark)}
+.project-actions button.text-link svg{width:17px;height:17px}
+.project-dialog{width:min(1120px,calc(100vw - 56px));max-width:none;max-height:calc(100dvh - 48px);margin:auto;padding:0;border:1px solid #cbd0c2;border-radius:16px;background:var(--paper);color:var(--ink);box-shadow:0 24px 100px #1c231f40;overflow:hidden;overscroll-behavior:contain}
+.project-dialog[open]{display:grid;grid-template-rows:auto minmax(0,1fr);animation:project-dialog-enter .32s cubic-bezier(.22,.68,.2,1) both}
+.project-dialog::backdrop{background:#20271fc4;backdrop-filter:blur(7px)}
+.project-dialog[open]::backdrop{animation:project-backdrop-enter .26s ease both}
+.project-dialog[open][data-closing=true]{animation:project-dialog-exit .22s ease both;pointer-events:none}
+.project-dialog[open][data-closing=true]::backdrop{animation:project-backdrop-exit .22s ease both}
+.project-dialog-toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px;padding:10px 30px;border-bottom:1px solid var(--line);background:var(--paper)}
+.project-dialog-toolbar>span{font-size:12px;color:var(--muted)}
+.project-dialog-toolbar>button{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:8px 0 8px 12px;border:0;background:transparent;color:var(--ink);font-size:12px;cursor:pointer}
+.project-dialog-toolbar>button:hover{color:var(--orange-dark)}
+.project-dialog-toolbar svg{width:20px;height:20px}
+.project-dialog-scroll{min-height:0;overflow:auto;overscroll-behavior:contain;scroll-behavior:smooth;scroll-padding-block:24px}
+.project-dialog-scroll:focus-visible{outline:2px solid var(--orange);outline-offset:-3px}
+.project-dialog-content{padding:32px 40px 40px;min-width:0}
+.project-dialog-heading{margin-bottom:28px}
+.project-dialog-heading h2{font-size:clamp(32px,4vw,48px);line-height:1.12;letter-spacing:-.045em;text-wrap:balance;margin:0 0 14px}
+.project-dialog-heading>p{font-size:16px;line-height:1.7;color:var(--muted);max-width:52ch}
+.project-dialog-role{display:block;font-size:12px;line-height:1.7;color:var(--system);margin-top:12px}
+.project-dialog-story{max-width:900px;margin:30px auto 0}
+.project-dialog-chapter{display:grid;grid-template-columns:.65fr 1.5fr;gap:32px;padding:26px 0;border-bottom:1px solid var(--line)}
+.project-dialog-chapter h3{font-size:23px;line-height:1.3;letter-spacing:-.03em}
+.project-dialog-chapter p,.project-dialog-detail p,.project-dialog-implementation li{font-size:15px;line-height:1.8;color:var(--muted);max-width:62ch}
+.project-dialog-chapter p+p{margin-top:14px}
+.project-dialog-detail{border-bottom:1px solid var(--line)}
+.project-dialog-detail>summary{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:66px;padding:18px 0;list-style:none;cursor:pointer;font-size:17px;line-height:1.5;letter-spacing:-.02em}
+.project-dialog-detail>summary::-webkit-details-marker{display:none}
+.project-dialog-detail>summary::marker{content:""}
+.project-dialog-detail>summary>span{font-size:22px;font-weight:400;color:var(--muted);transition:transform .18s}
+.project-dialog-detail[open]>summary>span{transform:rotate(45deg)}
+.project-dialog-detail>summary:hover{color:var(--orange-dark)}
+.project-dialog-decisions{display:grid;grid-template-columns:1fr 1fr;gap:26px 32px;padding:8px 0 28px}
+.project-dialog-decisions h4{font-size:17px;line-height:1.45;letter-spacing:-.02em;margin:0 0 9px}
+.project-dialog-implementation{padding:4px 0 26px}
+.project-dialog-implementation ul{margin:18px 0;padding-left:20px}
+.project-dialog-implementation li+li{margin-top:8px}
+.project-dialog-implementation .project-dialog-stack{font-size:12px;color:var(--system);margin-top:18px}
+.project-dialog-links{display:flex;flex-wrap:wrap;gap:16px 28px;max-width:900px;margin:28px auto 0}
+.project-dialog-links .text-link{font-size:13px;min-height:44px}
+.project-dialog :is(button,a,summary):focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+.project-dialog .project-gallery-expand:focus-visible{outline-offset:-5px}
+/* Native modal top-layer content cannot use the page's below-layer custom cursor. */
+html.has-custom-cursor .project-dialog,html.has-custom-cursor .project-dialog *{cursor:auto!important}
+html.has-custom-cursor .project-dialog :is(button,button *,a,a *,summary,summary *){cursor:pointer!important}
+@keyframes project-dialog-enter{from{opacity:0;transform:translateY(22px) scale(.975)}to{opacity:1;transform:none}}
+@keyframes project-dialog-exit{from{opacity:1;transform:none}to{opacity:0;transform:translateY(14px) scale(.985)}}
+@keyframes project-backdrop-enter{from{opacity:0}to{opacity:1}}
+@keyframes project-backdrop-exit{from{opacity:1}to{opacity:0}}
+@media(max-width:760px){
+ .project-dialog{width:calc(100vw - 20px);max-height:calc(100dvh - 24px);border-radius:12px}
+ .project-dialog-toolbar{min-height:60px;padding:8px 18px}
+ .project-dialog-toolbar>span{font-size:11px}
+ .project-dialog-content{padding:24px 18px 30px}
+ .project-dialog-heading{margin-bottom:22px}
+ .project-dialog-heading h2{font-size:32px;line-height:1.15}
+ .project-dialog-heading>p{font-size:14px;line-height:1.75}
+ .project-dialog-role{font-size:11px}
+ .project-dialog-story{margin-top:22px}
+ .project-dialog-chapter{display:block;padding:23px 0}
+ .project-dialog-chapter h3{font-size:22px;margin-bottom:12px}
+ .project-dialog-chapter p,.project-dialog-detail p,.project-dialog-implementation li{font-size:14px;line-height:1.8}
+ .project-dialog-detail>summary{min-height:62px;font-size:16px}
+ .project-dialog-decisions{grid-template-columns:1fr;gap:22px}
+ .project-dialog-links{margin-top:22px}
+}
+@media(prefers-reduced-motion:reduce){
+ .project-dialog[open],.project-dialog[open]::backdrop,.project-dialog[open][data-closing=true],.project-dialog[open][data-closing=true]::backdrop{animation:none}
+ .project-dialog-scroll{scroll-behavior:auto}
+ .project-dialog-detail>summary>span{transition:none}
+}

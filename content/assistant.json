@@ -1,0 +1,14 @@
+{
+  "name": "Portfolio companion",
+  "greeting": "Hi! Ask me about the experience, studies, skills or contact details in this portfolio. I use saved information, so I may not have every answer.",
+  "suggestedQuestions": [
+    "What does he work on?",
+    "What are his skills?",
+    "What did he study?",
+    "Tell me about the projects",
+    "Is he available for work?",
+    "How can I contact him?"
+  ],
+  "fallback": "I only have the saved portfolio information, so I don’t have an answer to that yet. Ask about experience, studies, skills, projects or availability—or contact him directly.",
+  "faqs": []
+}

@@ -1,0 +1,510 @@
+{
+  "profile": {
+    "name": "Wong Chee Chun",
+    "shortName": "Chee Chun",
+    "role": "Software Engineer & Creative Developer",
+    "location": "Malaysia",
+    "email": "zisonwong25@gmail.com",
+    "whatsapp": "601133170919",
+    "availability": "Open to freelance & full-time opportunities",
+    "intro": "Software Engineer at Theta Service Partner, building loan systems with Java and ZK.",
+    "about": "My path into software started with Computer Science, followed by a degree in Software Engineering. Along the way, I worked on SQL reporting at ViewPoint before joining Theta Service Partner as an intern, then a full-time Software Engineer.",
+    "approach": "I like understanding how the pieces fit together, from the first interaction to the data underneath.",
+    "resumeUrl": "",
+    "githubUrl": "https://github.com/Crowford25",
+    "linkedinUrl": "https://www.linkedin.com/in/wong-chee-chun-599980233",
+    "interests": [
+      "Full-stack products",
+      "Automation",
+      "AI-enabled workflows",
+      "Product engineering"
+    ]
+  },
+  "projects": [
+    {
+      "slug": "aureum-stays",
+      "title": "Hotel bookings. One connected system.",
+      "name": "Aureum Stays",
+      "category": "Hotel booking & property management",
+      "year": "Personal project",
+      "isExample": false,
+      "visual": "booking",
+      "preview": "hotel",
+      "aliases": [
+        "aureum",
+        "hotel booking system",
+        "hotel system",
+        "hotel project",
+        "booking system",
+        "airbnb management"
+      ],
+      "image": "/projects/aureum-stays/aureum-home.png",
+      "imageAlt": "Aureum Stays home page with the destination, stay type, dates and guest search.",
+      "summary": "My full-stack hotel booking system, connecting the guest journey with room availability, payments and the staff tools behind each stay.",
+      "role": "Solo full-stack developer",
+      "stack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Stripe",
+        "Resend",
+        "Tailwind CSS"
+      ],
+      "problem": "Guests and staff need room availability, pricing and reservation status to stay in sync.",
+      "contribution": "I built the whole project, from the guest interface and staff dashboard to the APIs, PostgreSQL data model, payments and email workflows.",
+      "solution": "A single Next.js application connects guest bookings and staff operations through PostgreSQL. Server-side services handle availability, permissions and payments; separate workers process booking holds and queued email.",
+      "features": [
+        "English and Simplified Chinese property browsing with location, stay and guest filters.",
+        "Property galleries, room selection, availability and a booking review with nightly prices, fees and taxes.",
+        "Stripe payment integration with signed webhook handling and refund workflows.",
+        "Staff views for arrivals, departures, reservations, room status and date blocks.",
+        "Role-based access for customers, employees, team leads, managers and super admins.",
+        "Queued confirmation, cancellation and reminder emails, with operational history and worker status."
+      ],
+      "engineering": [
+        {
+          "title": "Availability follows the inventory",
+          "body": "The server checks physical rooms, date blocks, confirmed reservations and active holds inside a serializable transaction, with idempotency keys for repeated requests."
+        },
+        {
+          "title": "Payments are confirmed on the server",
+          "body": "Signed Stripe webhooks update reservation state after payment, with capacity checks and a refund path when a room change removes capacity."
+        },
+        {
+          "title": "Email runs in the background",
+          "body": "Booking changes and notification jobs are saved together; a worker processes the outbox and retries temporary delivery failures."
+        },
+        {
+          "title": "Access follows staff responsibilities",
+          "body": "Server-side permissions control booking, room, reporting and settings access, supported by operational history."
+        }
+      ],
+      "learning": "",
+      "outcome": "An end-to-end hotel application connecting guest bookings, room inventory and staff operations.",
+      "liveUrl": "",
+      "sourceUrl": "",
+      "built": "Guest bookings, room inventory & staff operations",
+      "story": [
+        {
+          "title": "Discover",
+          "description": "Browse hotel and property stays, explore their galleries and narrow the options by location, dates and guests. The guest interface supports English and Simplified Chinese.",
+          "image": "/projects/aureum-stays/aureum-home.png",
+          "imageAlt": "Aureum Stays home page with the destination, stay type, dates and guest search.",
+          "imageCaption": "Guest home"
+        },
+        {
+          "title": "Reserve",
+          "description": "Choose a room and stay dates, review the price breakdown, then continue to payment. The backend rechecks availability and creates an unpaid hold before confirmation.",
+          "image": "/projects/aureum-stays/aureum-reserve.png",
+          "imageAlt": "The Opaline Residence booking interface with room choice, stay dates, amenities and availability calendar.",
+          "imageCaption": "Room selection"
+        },
+        {
+          "title": "Manage",
+          "description": "Give staff a shared view of arrivals, departures, reservations and room availability. Permissions determine who can change bookings, manage rooms or access reporting and system settings.",
+          "image": "/projects/aureum-stays/aureum-manage.png",
+          "imageAlt": "Aureum staff dashboard showing room availability, booking holds and upcoming stays for the demo employee.",
+          "imageCaption": "Staff overview · demo account"
+        }
+      ],
+      "architecture": [
+        {
+          "title": "Guest & staff UI",
+          "detail": "Next.js / React / TypeScript"
+        },
+        {
+          "title": "Booking services",
+          "detail": "Pricing / availability / permissions"
+        },
+        {
+          "title": "Integrations",
+          "detail": "Stripe / Resend / background workers"
+        },
+        {
+          "title": "PostgreSQL",
+          "detail": "Inventory / reservations / history"
+        }
+      ],
+      "integrations": [
+        "Stripe payments",
+        "Resend email",
+        "Role-based access",
+        "Background workers"
+      ],
+      "imageCaption": "Guest home",
+      "gallery": [
+        {
+          "image": "/projects/aureum-stays/aureum-discover.png",
+          "imageAlt": "Aureum residence collection with destination and property-type filters.",
+          "caption": "Residence collection"
+        },
+        {
+          "image": "/projects/aureum-stays/aureum-property.png",
+          "imageAlt": "The Opaline Residence detail page with its property gallery and room information.",
+          "caption": "The Opaline Residence"
+        },
+        {
+          "image": "/projects/aureum-stays/aureum-reserve.png",
+          "imageAlt": "The Opaline Residence booking interface with room choice, stay dates, amenities and availability calendar.",
+          "caption": "Room selection"
+        },
+        {
+          "image": "/projects/aureum-stays/aureum-manage.png",
+          "imageAlt": "Aureum staff dashboard showing room availability, booking holds and upcoming stays for the demo employee.",
+          "caption": "Staff overview · demo account"
+        }
+      ],
+      "homepageSummary": "Hotel bookings and the operations behind each stay."
+    },
+    {
+      "slug": "final-year-project",
+      "title": "Final Year Project",
+      "name": "Final Year Project",
+      "category": "Hospital management & patient portal",
+      "year": "Academic project",
+      "isExample": false,
+      "visual": "operations",
+      "preview": "fyp",
+      "aliases": [
+        "fyp",
+        "fyp1",
+        "hospital project",
+        "hospital management",
+        "hospital system",
+        "patient portal",
+        "trinity medical center",
+        "ihms"
+      ],
+      "image": "/projects/final-year-project/fyp-client-home.png",
+      "imageAlt": "Original Trinity Medical Center Client home page with hospital services and appointment navigation.",
+      "summary": "A team-built hospital management system. My contribution focused on the Client module: helping patients find a doctor, book appointments, manage their account and communicate with doctors.",
+      "role": "Client module developer · team project",
+      "stack": [
+        "C#",
+        "ASP.NET Web Forms",
+        ".NET Framework 4.7.2",
+        "SQL Server",
+        "ADO.NET",
+        "JavaScript",
+        "CSS"
+      ],
+      "problem": "Patients need a clear path from finding a doctor to choosing an available appointment and managing their account.",
+      "contribution": "I developed the Client module: doctor discovery, appointment booking and management, patient profiles and patient–doctor messaging.",
+      "solution": "The team system uses ASP.NET Web Forms with C# page handlers and shared layouts. My Client pages use ADO.NET to connect patient workflows to the shared SQL Server records.",
+      "features": [
+        "Doctor search by branch, department and name, followed by appointment-slot selection.",
+        "Date and consultation-type filters for Walk-in and Online Consultation appointments.",
+        "Patient profile editing, appointment history and appointment changes.",
+        "Patient payment-history and emergency-contact views.",
+        "Stored patient–doctor conversations with periodic message refresh.",
+        "A connected staff workspace for scheduling, appointments, records and prescriptions as part of the wider team project."
+      ],
+      "engineering": [
+        {
+          "title": "Booking around available slots",
+          "body": "The Client flow narrows staff-maintained appointment slots by branch, doctor, date and consultation type."
+        },
+        {
+          "title": "Shared Web Forms layouts",
+          "body": "A shared master page provides navigation and layout, with C# page handlers and JavaScript supporting patient interactions."
+        },
+        {
+          "title": "Connected SQL Server records",
+          "body": "ADO.NET retrieves doctor, appointment, profile and conversation records shared with the staff modules."
+        },
+        {
+          "title": "Stored conversations",
+          "body": "Chat sessions and messages are saved in SQL Server, with an UpdatePanel periodically retrieving conversation updates."
+        }
+      ],
+      "learning": "",
+      "outcome": "My Client module connects the patient journey to the team’s hospital management system.",
+      "liveUrl": "",
+      "sourceUrl": "",
+      "built": "Patient-facing Client module",
+      "architecture": [
+        {
+          "title": "Patient & staff portals",
+          "detail": "ASPX pages / shared master layouts"
+        },
+        {
+          "title": "Application handlers",
+          "detail": "C# / ASP.NET Web Forms"
+        },
+        {
+          "title": "Data access",
+          "detail": "ADO.NET / SQL queries"
+        },
+        {
+          "title": "SQL Server",
+          "detail": "Appointments / records / conversations"
+        }
+      ],
+      "integrations": [],
+      "imageCaption": "Client home",
+      "gallery": [
+        {
+          "image": "/projects/final-year-project/fyp-client-login.png",
+          "imageAlt": "Original Client login page with username or email and password fields.",
+          "caption": "Client login"
+        },
+        {
+          "image": "/projects/final-year-project/fyp-client-faq.png",
+          "imageAlt": "Original Client FAQ page with expandable questions about hospital services and insurance.",
+          "caption": "Client FAQs"
+        }
+      ],
+      "homepageSummary": "A hospital patient portal. Team project; I built the Client module."
+    },
+    {
+      "slug": "brand-website",
+      "title": "A digital first impression.",
+      "name": "Brand & business website",
+      "category": "Creative development",
+      "year": "Sample 02",
+      "isExample": true,
+      "visual": "editorial",
+      "image": "",
+      "imageAlt": "",
+      "summary": "An illustrative business website exploring content, navigation, and a consistent visual identity.",
+      "role": "Illustrative study",
+      "stack": [
+        "Next.js",
+        "React",
+        "CSS"
+      ],
+      "problem": "Describe the audience and what they need to understand about the business.",
+      "solution": "Explain the content structure, visual direction, and interactions you created.",
+      "features": [
+        "Describe the content and navigation",
+        "Explain the responsive experience",
+        "Add the key visitor action"
+      ],
+      "engineering": [
+        {
+          "title": "Frontend decisions",
+          "body": "Explain how your component structure supports a consistent and maintainable site."
+        },
+        {
+          "title": "Performance & accessibility",
+          "body": "Describe the checks you actually performed and any measured improvements."
+        }
+      ],
+      "learning": "Share what you learned about translating the business’s needs into a useful website.",
+      "liveUrl": "",
+      "sourceUrl": "",
+      "contribution": "",
+      "outcome": "",
+      "homepageSummary": "An editorial study in identity and layout."
+    },
+    {
+      "slug": "operations-tool",
+      "title": "Less admin. More momentum.",
+      "name": "Internal operations tool",
+      "category": "Business systems",
+      "year": "Sample 03",
+      "isExample": true,
+      "visual": "operations",
+      "image": "",
+      "imageAlt": "",
+      "summary": "An illustrative internal tool for organising information and moving work through a shared workflow.",
+      "role": "Illustrative study",
+      "stack": [
+        "React",
+        "TypeScript",
+        "API integration"
+      ],
+      "problem": "Explain the repetitive process or disconnected workflow this project addresses.",
+      "solution": "Show how the interface connects people, information, and actions in one place.",
+      "features": [
+        "Describe the core workflow",
+        "Explain user access and permissions",
+        "Add the integrations you built"
+      ],
+      "engineering": [
+        {
+          "title": "Data & integrations",
+          "body": "Explain the data model and how you handle external services, errors, and validation."
+        },
+        {
+          "title": "Reliability",
+          "body": "Describe the actual safeguards and tests that keep the workflow dependable."
+        }
+      ],
+      "learning": "Add a real lesson about building software for day-to-day business operations.",
+      "liveUrl": "",
+      "sourceUrl": "",
+      "contribution": "",
+      "outcome": "",
+      "homepageSummary": "An interface study for everyday operations."
+    }
+  ],
+  "services": [
+    {
+      "title": "Product experience",
+      "description": "Interfaces organised around what people need to do.",
+      "items": [
+        "Responsive web interfaces",
+        "Business websites",
+        "Customer journeys"
+      ]
+    },
+    {
+      "title": "Application engineering",
+      "description": "The rules, access and data behind a useful application.",
+      "items": [
+        "Application workflows",
+        "Authentication & permissions",
+        "APIs & databases"
+      ]
+    },
+    {
+      "title": "Systems & delivery",
+      "description": "Deploying applications and addressing security vulnerabilities.",
+      "items": [
+        "Application deployment",
+        "Security vulnerability fixes"
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Frontend",
+      "items": [
+        "Angular",
+        "ZK framework",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Responsive UI",
+        "Accessible interactions"
+      ]
+    },
+    {
+      "title": "Backend & Data",
+      "items": [
+        "Java",
+        "Microsoft SQL Server",
+        "REST APIs",
+        "Database design",
+        "Authentication",
+        "Application logic"
+      ]
+    },
+    {
+      "title": "Infrastructure",
+      "items": [
+        "Jenkins",
+        "WebSphere",
+        "WinSCP",
+        "Application deployment",
+        "Security vulnerability fixes"
+      ]
+    },
+    {
+      "title": "Tools & Workflow",
+      "items": [
+        "Git",
+        "Component-driven development",
+        "Testing",
+        "Documentation"
+      ]
+    }
+  ],
+  "process": [
+    {
+      "title": "Understand",
+      "description": "Identify the people, the problem, and the useful outcome."
+    },
+    {
+      "title": "Shape",
+      "description": "Map the journey and make the idea tangible."
+    },
+    {
+      "title": "Build",
+      "description": "Connect the interface, application logic, and data."
+    },
+    {
+      "title": "Refine",
+      "description": "Improve clarity, accessibility, and the details through real journeys."
+    },
+    {
+      "title": "Ship",
+      "description": "Deliver the product with documentation and a clear handover."
+    }
+  ],
+  "career": [
+    {
+      "stage": "Diploma",
+      "title": "Diploma in Computer Science",
+      "period": "Jul 2020 – Jul 2023",
+      "organisation": "Tunku Abdul Rahman University of Management and Technology",
+      "verb": "LEARN",
+      "description": "Activities and societies: Swimming Club.",
+      "current": false,
+      "isPlaceholder": false,
+      "organisationShort": "TAR UMT",
+      "field": ""
+    },
+    {
+      "stage": "Diploma internship",
+      "title": "Business Intelligence Specialist",
+      "period": "Nov 2022 – Jan 2023",
+      "organisation": "ViewPoint Research Corporation Sdn Bhd",
+      "verb": "EXPERIENCE",
+      "description": "On-site internship in Seri Kembangan. Tested SQL databases, optimised existing queries, and developed new queries to meet reporting needs across various regions.",
+      "current": false,
+      "isPlaceholder": false,
+      "tools": [
+        "Microsoft SQL Server"
+      ],
+      "organisationShort": "ViewPoint Research"
+    },
+    {
+      "stage": "Degree",
+      "title": "Bachelor of Software Engineering",
+      "period": "Jul 2023 – Jul 2025",
+      "organisation": "Tunku Abdul Rahman University of Management and Technology",
+      "verb": "DEEPEN",
+      "description": "Activities and societies: Basketball Club.",
+      "current": false,
+      "isPlaceholder": false,
+      "organisationShort": "TAR UMT",
+      "field": "Information Technology"
+    },
+    {
+      "stage": "Degree internship",
+      "title": "Software Engineer Intern",
+      "period": "Feb 2025 – Aug 2025",
+      "organisation": "Theta Service Partner Sdn Bhd",
+      "verb": "CONTRIBUTE",
+      "description": "Worked on a mortgage loan system for India, mainly using Java and Angular.",
+      "current": false,
+      "isPlaceholder": false,
+      "tools": [
+        "Java",
+        "Angular"
+      ],
+      "organisationShort": "Theta Service Partner"
+    },
+    {
+      "stage": "Permanent role",
+      "title": "Software Engineer",
+      "period": "Aug 2025 – Present",
+      "organisation": "Theta Service Partner Sdn Bhd",
+      "verb": "BUILD",
+      "description": "I work on loan systems for Taiwan and Singapore, using Java and the ZK framework. My responsibilities include application deployments with Jenkins, WebSphere and WinSCP, and fixing security vulnerabilities.",
+      "current": true,
+      "isPlaceholder": false,
+      "tools": [
+        "Java",
+        "ZK framework",
+        "Jenkins",
+        "WebSphere",
+        "WinSCP"
+      ],
+      "organisationShort": "Theta Service Partner"
+    }
+  ]
+}

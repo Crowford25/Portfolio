@@ -1,0 +1,110 @@
+/* Quiet details support the larger project imagery and interactive sketch. */
+.calm-capabilities{display:grid;grid-template-columns:.8fr 1.25fr;gap:clamp(40px,7vw,100px);align-items:start;padding-block:72px}
+.calm-capabilities-heading h2{font-size:clamp(32px,3.2vw,44px);line-height:1.15;letter-spacing:-.045em;margin-top:20px}
+.calm-capabilities-content{min-width:0}
+.calm-service{border-bottom:1px solid var(--line)}
+.calm-service:first-child{border-top:1px solid var(--line)}
+.calm-service h3{margin:0;font:inherit}
+.calm-service h3>button,.calm-tools>summary{display:flex;justify-content:space-between;align-items:center;gap:24px;width:100%;min-height:68px;padding:20px 0;border:0;background:none;color:var(--ink);font-family:var(--sans);text-align:left;cursor:pointer}
+.calm-service h3>button{font-size:clamp(19px,1.8vw,24px);line-height:1.4;letter-spacing:-.035em;transition:color .18s}
+.calm-service h3>button:hover,.calm-service h3>button[aria-expanded=true],.calm-tools>summary:hover{color:var(--orange-dark)}
+.calm-disclosure-mark{flex-shrink:0;width:18px;font-size:20px;line-height:1;text-align:center;font-weight:400;color:var(--muted);transition:transform .2s}
+.calm-service h3>button[aria-expanded=true] .calm-disclosure-mark,.calm-tools[open]>summary .calm-disclosure-mark{transform:rotate(45deg)}
+.calm-service-detail{padding:0 36px 24px 0}
+.calm-service-detail[hidden]{display:none}
+.calm-service-detail p{font-size:15px;line-height:1.7;max-width:43ch;color:var(--muted);margin:0 0 13px}
+.calm-service-detail ul{display:flex;flex-wrap:wrap;gap:6px 20px;padding:0;margin:0;list-style:none;font-size:13px;line-height:1.7;color:var(--system)}
+.calm-tools{margin-top:16px}
+.calm-tools>summary{min-height:52px;padding:14px 0;font-size:13px;line-height:1.5;list-style:none;color:var(--muted)}
+.calm-tools>summary::-webkit-details-marker{display:none}
+.calm-tools>summary::marker{content:""}
+.calm-tools dl{display:grid;grid-template-columns:1fr 1fr;gap:24px 32px;margin:10px 0 0;padding-bottom:6px}
+.calm-tools dt{font-size:13px;line-height:1.5;font-weight:600;color:var(--ink);margin-bottom:7px}
+.calm-tools dd{margin:0;color:var(--muted);font-size:13px;line-height:1.85;max-width:34ch}
+.calm-service h3>button:focus-visible,.calm-tools>summary:focus-visible{outline:2px solid var(--orange);outline-offset:5px}
+
+.calm-study{grid-template-columns:.65fr 1.4fr;gap:clamp(36px,6vw,80px);min-height:0;padding-top:76px;padding-bottom:76px}
+.calm-study .making-study-caption h2{font-size:clamp(34px,3.5vw,49px);line-height:1.13;max-width:11ch;margin:22px 0 0;letter-spacing:-.04em;text-wrap:balance}
+.calm-study .making-study-caption h2 em{font-size:1.08em}
+.calm-study .study-stage-nav{gap:24px;margin-bottom:18px}
+.calm-study .study-stage-nav button{justify-content:center;min-height:48px;padding-block:12px;font-size:14px;line-height:1.5;font-weight:500}
+.calm-study .study-stage-nav button[aria-pressed=true]{font-weight:600}
+.calm-study .study-scene{height:500px;background:#eff0e7}
+.calm-study .study-thought{left:10%;right:6%;top:30%}
+.calm-study .study-thought p{font-size:clamp(30px,3.2vw,44px);line-height:1.25;letter-spacing:-.04em;margin:0}
+.calm-study .study-thought p em{font-size:1.12em}
+.calm-study .study-product{left:13%;right:13%;top:40px;height:420px}
+.calm-study .study-product-nav{padding:12px 20px;font-size:10px;line-height:14px}
+.calm-study .study-product-nav strong{font-size:12px}
+.calm-study .study-product-main{padding:20px}
+.calm-study .study-product-main h3{font-size:30px;line-height:1.2;margin:0 0 12px}
+.calm-study .study-product-image{height:110px}
+.calm-study .study-window{right:36px;top:16px;width:55px;height:94px;border-width:7px;border-radius:38px 38px 0 0}
+.calm-study .study-landscape{width:190px;height:95px;bottom:-29px}
+.calm-study .study-product-fields{font-size:11px;line-height:1.5;gap:14px;margin-top:16px;padding-bottom:12px}
+.calm-study .study-product-fields>span{display:flex;flex-direction:column;gap:4px}
+.calm-study .study-product-fields b{margin:0;font-size:12px}
+.calm-study .study-product-action{font-size:12px;line-height:1.4;padding:12px;margin-top:14px}
+.calm-study .study-system-labels{inset:65px 26px 65px 52%;gap:18px}
+.calm-study .study-system-labels>span{padding:14px;min-height:48px;background:var(--paper);border-left:2px solid var(--system)}
+.calm-study .study-system-labels>span>strong{font-size:15px;line-height:1.4;letter-spacing:-.015em}
+.calm-study.study-stage-2 .study-product{transform:translateX(-30%) scale(.68) rotateY(-10deg)}
+.calm-study-footer{padding-top:20px}
+.calm-study-footer>p{margin:0;font-size:15px;line-height:1.6;color:var(--ink);max-width:45ch}
+.calm-study-footer>span{display:block;font-size:12px;line-height:1.6;color:var(--muted);margin-top:8px}
+@media(max-width:1000px){
+ .calm-study{grid-template-columns:.6fr 1.4fr;gap:30px}
+ .calm-study .study-product{left:9%;right:9%}
+ .calm-study .study-system-labels{left:49%;right:18px}
+ .calm-study .study-system-labels>span{padding:12px}
+}
+@media(max-width:760px){
+ .calm-capabilities{display:block;padding-top:48px;padding-bottom:48px}
+ .calm-capabilities-heading{margin-bottom:28px}
+ .calm-capabilities-heading h2{font-size:34px;margin-top:16px}
+ .calm-service h3>button{font-size:21px;min-height:72px;padding-block:21px;gap:18px}
+ .calm-service-detail{padding-right:20px}
+ .calm-tools dl{gap:22px}
+ .calm-study{display:block;padding-block:48px}
+ .calm-study .making-study-caption{margin-bottom:30px}
+ .calm-study .making-study-caption h2{max-width:15ch;font-size:37px;margin-top:17px}
+ .calm-study .study-stage-nav{gap:8px;margin-bottom:16px}
+ .calm-study .study-stage-nav button{min-width:44px;flex:1;font-size:13px;min-height:48px}
+ .calm-study .study-scene{height:430px}
+ .calm-study .study-thought{top:32%;left:8%;right:5%}
+ .calm-study .study-thought p{font-size:clamp(28px,7.5vw,40px)}
+ .calm-study .study-product{left:7%;right:7%;top:30px;height:370px}
+ .calm-study .study-product-nav{padding:11px 16px}
+ .calm-study .study-product-main{padding:16px}
+ .calm-study .study-product-main h3{font-size:27px;margin-bottom:12px}
+ .calm-study .study-product-image{height:94px}
+ .calm-study .study-product-fields{gap:8px;font-size:10px;margin-top:13px;padding-bottom:10px}
+ .calm-study .study-product-fields b{font-size:11px}
+ .calm-study .study-product-action{padding:11px;margin-top:12px;font-size:11px}
+ .calm-study .study-system-labels{inset:50px 12px 50px 48%;gap:16px}
+ .calm-study .study-system-labels>span{padding:12px 9px;min-height:48px}
+ .calm-study .study-system-labels>span>strong{font-size:13px}
+ .calm-study.study-stage-2 .study-product{transform:translateX(-30%) scale(.64) rotateY(-10deg)}
+ .calm-study-footer{padding-top:18px}
+ .calm-study-footer>p{font-size:14px;max-width:34ch}
+ .study-key-hint{display:none}
+}
+@media(max-width:420px){.calm-tools dl{grid-template-columns:1fr}.calm-tools dd{max-width:none}}
+@media(prefers-reduced-motion:reduce){
+ .calm-disclosure-mark{transition:none}
+ .calm-study .study-parallax{transform:none!important;will-change:auto}
+ .calm-study :is(.study-background,.study-product,.study-product-nav,.study-product-main,.study-thought,.study-system-labels){width:auto;border-radius:0;transition:none;pointer-events:none}
+ .calm-study .study-background{inset:0;height:auto;border:0;transform:none;background:transparent;z-index:auto}
+ .calm-study .bg-idea{background:repeating-linear-gradient(0deg,transparent,transparent 26px,#8e9a7909 27px)}
+ .calm-study .bg-interface{background:linear-gradient(90deg,#d8dfcd30,transparent)}
+ .calm-study .bg-system{background:#dce4cc40}
+ .calm-study .bg-product{background:#d5ddc040}
+ .calm-study .study-product{border:1px solid #cbd3ba;background:#f8f8f1;z-index:2}
+ .calm-study.study-stage-1 .study-product{border-style:dashed;background:transparent}
+ .calm-study.study-stage-2 .study-product{border-color:transparent;background:transparent}
+ .calm-study :is(.study-product-nav,.study-product-main){position:relative;height:auto;left:auto;top:auto;border:0;background:transparent;z-index:auto;transform:none}
+ .calm-study .study-product-nav{border-bottom:1px solid #d7deca}
+ .calm-study .study-thought{height:auto;border:0;background:transparent;z-index:2;transform:none}
+ .calm-study .study-system-labels{height:auto;border:0;background:transparent;z-index:3;transform:none}
+ .calm-study :is(.study-product-image,.study-product-action,.study-window,.study-landscape){transition:none}
+}

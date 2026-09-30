@@ -1,0 +1,70 @@
+/* One quiet edge rule. No thumb, track, symbol, trail or extra navigation. */
+:root { scrollbar-gutter: auto; }
+
+/* Native scrolling stays intact. Without this mounted enhancement the browser
+   retains its own scrollbar, including when JavaScript is unavailable. */
+html[data-scroll-progress="true"],
+.project-dialog-scroll[data-scroll-progress="true"] {
+  scrollbar-width: none;
+  scrollbar-gutter: auto;
+}
+html[data-scroll-progress="true"]::-webkit-scrollbar,
+.project-dialog-scroll[data-scroll-progress="true"]::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: 2px;
+  z-index: 35;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 1.05s ease;
+  contain: layout style;
+}
+.scroll-progress[data-ready="true"] { opacity: .09; }
+.scroll-progress[data-ready="true"][data-scrolling="true"] {
+  opacity: .64;
+  transition-duration: .16s;
+}
+.scroll-progress > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--system, #697654);
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  will-change: transform;
+}
+.scroll-progress--project {
+  position: absolute;
+  top: 68px;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+body:has(dialog[open]) > .scroll-progress--page { opacity: 0; }
+
+@media (max-width: 760px) {
+  .scroll-progress { width: 1px; }
+  .scroll-progress--project { top: 60px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress { transition: none; }
+  .scroll-progress[data-ready="true"],
+  .scroll-progress[data-ready="true"][data-scrolling="true"] { opacity: .24; }
+  body:has(dialog[open]) > .scroll-progress--page { opacity: 0; }
+  .scroll-progress > span { will-change: auto; }
+}
+@media (forced-colors: active) {
+  .scroll-progress { display: none; }
+  html[data-scroll-progress="true"],
+  .project-dialog-scroll[data-scroll-progress="true"] { scrollbar-width: auto; scrollbar-color: auto; }
+  html[data-scroll-progress="true"]::-webkit-scrollbar,
+  .project-dialog-scroll[data-scroll-progress="true"]::-webkit-scrollbar { display: initial; width: auto; height: auto; }
+}
+@media print { .scroll-progress { display: none; } }

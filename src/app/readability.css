@@ -1,0 +1,31 @@
+/* Final typography layer: keep portfolio copy comfortable to read.
+   Miniature product studies deliberately retain screenshot-like proportions. */
+.hero-name{font-size:13px;font-weight:650;letter-spacing:.035em}
+.hero-copy>p{font-size:16px;max-width:410px}
+.hero-availability{font-size:12px}
+.hero-top .eyebrow{font-size:11px}
+.section-heading>p{font-size:14px}
+.project-info>p{font-size:15px}
+.project-meta{font-size:12px}
+.project-tags>span{font-size:11px}
+.sample-note{font-size:12px}
+.about-copy>p{font-size:16px}
+.about-copy>p.about-secondary{font-size:15px}
+.service p,.process-step p{font-size:14px}
+.service ul{font-size:13px}
+.service p{min-height:100px}
+.contact-grid p{font-size:14px}
+.text-link{font-size:13px}
+.capability-items>span{font-size:12px}
+.header-location{font-size:11px}
+.hero .study-toolbar>.micro{font-size:8px}
+.hero .view-switch button{font-size:11px;min-height:44px;padding-inline:14px}
+.hero .study-caption small{font-size:8px}
+.hero .study-caption{font-size:8px;flex-wrap:wrap}
+.hero .study-caption small{flex-basis:100%;text-align:left}
+.hero .margin-note{bottom:-36px}
+.view-switch button:focus-visible{outline-offset:2px}
+@media(max-width:1100px){.hero-copy>p{font-size:14px}.hero-availability{font-size:11px}.hero-top .eyebrow{font-size:10px}.section-heading>p{font-size:13px}.project-info>p{font-size:14px}.project-meta{font-size:10px}.project-tags>span{font-size:10px}.hero .study-toolbar>.micro{font-size:6px}.hero .view-switch button{font-size:9px;padding-inline:10px}.hero .study-caption,.hero .study-caption small{font-size:6px}.service p{min-height:125px}.about-copy>p{font-size:15px}.about-copy>p.about-secondary{font-size:14px}.hero .margin-note{bottom:-31px}}
+@media(max-width:850px){.hero-name{font-size:12px}.hero-copy>p{font-size:14px}.project-meta{font-size:10px}.project-tags>span{font-size:9px}.service p{min-height:150px}.hero .study-toolbar>.micro{font-size:5px}.hero .view-switch button{font-size:8px;padding-inline:8px}.contact-grid p{font-size:13px}}
+@media(max-width:680px){.hero-name{font-size:13px;letter-spacing:.03em}.hero-top .eyebrow{font-size:9px}.hero-copy>p{font-size:15px;max-width:390px}.hero-availability{font-size:10px;max-width:155px;margin-left:12px}.section-heading>p,.project-info>p{font-size:14px}.project-meta{font-size:11px}.sample-note{font-size:11px}.about-copy>p{font-size:15px}.about-copy>p.about-secondary{font-size:14px}.service p{font-size:14px;min-height:0}.service ul{font-size:12px}.process-step p{font-size:13px}.contact-grid p{font-size:14px}.text-link,.project-info>.text-link,.project-secondary .project-info>.text-link{font-size:12px}.hero .study-toolbar>.micro{font-size:6px}.hero .view-switch button{font-size:10px;padding-inline:12px}.hero .study-caption,.hero .study-caption small{font-size:7px}.hero .study-caption{align-items:start}.hero .margin-note{bottom:-18px}.hero-grid{padding-bottom:45px}.project-open{width:44px;height:44px}.nav-contact{min-height:44px}.footer{font-size:10px}.email-line{font-size:12px}}
+@media(max-width:370px){.hero-copy h1{font-size:clamp(49px,16vw,59px)}.hero-availability{max-width:none;margin-left:0}.hero .view-switch button{font-size:9px;padding-inline:10px}.hero .study-toolbar>.micro{font-size:5px}}

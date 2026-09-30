@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+output/
+.playwright-cli/
+*.tsbuildinfo
+.env*
+!.env.example
+
+# Keep documentation local except the public README.
+*.md
+!README.md

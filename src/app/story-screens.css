@@ -1,0 +1,38 @@
+.story-screen{background:#fbfcf7;min-height:405px;color:#35412e}
+.story-screen-masthead{display:flex;align-items:center;gap:20px;padding:22px 25px 0}
+.story-screen-masthead .stay-logo{margin:0;font-size:29px}
+.story-screen-masthead>.micro{font-size:7px;color:#748268;margin-left:auto}
+.story-screen-body{padding:24px 25px}
+.story-screen-title{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:26px}
+.story-screen-title .micro{font-size:6px;color:#6b7a5c}
+.story-screen-title p{font-size:23px;line-height:1.2;letter-spacing:-.045em;margin-top:8px}
+.story-date{font-size:7px;color:#6b7a5c;white-space:nowrap}
+.reservation-summary{display:flex;gap:15px;border-bottom:1px solid #dce3d2;padding-bottom:18px;margin-bottom:18px}
+.reservation-summary>span{font-size:8px;color:#68795a;flex:1}
+.reservation-summary b{display:block;font-weight:400;font-size:25px;color:#3a4a2e;margin-top:8px;line-height:1}
+.reservation-labels{display:grid;grid-template-columns:1.4fr .8fr .7fr;gap:14px;font-size:6px;color:#7e8c70;padding-bottom:10px}
+.reservation-row{display:grid;grid-template-columns:1.4fr .8fr .7fr;align-items:center;gap:14px;padding:14px 0;border-top:1px solid #e3e8da;font-size:8px}
+.reservation-row>div{display:flex;align-items:center;gap:8px}
+.reservation-row>div>div{display:flex;flex-direction:column;gap:3px}
+.reservation-row strong{font-size:9px;font-weight:550}
+.reservation-row small{font-size:7px;color:#77866a}
+.reservation-row .confirmed{font-size:7px;justify-self:start;margin-left:0}
+.pending-status{color:#876945;background:#f0e9dc;font-size:7px;padding:3px 5px;justify-self:start}
+.reservation-footnote{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:7px;color:#7a886d;margin-top:20px}
+.reservation-footnote .micro{font-size:5px}
+.availability-grid{border-top:1px solid #d8dfcd}
+.availability-dates{display:grid;grid-template-columns:100px repeat(5,1fr);align-items:center;padding:15px 0;font-size:9px;color:#768368;text-align:center;gap:8px}
+.availability-dates>span:first-child{text-align:left;font-size:6px}
+.availability-room{display:grid;grid-template-columns:100px 1fr;gap:8px;border-top:1px solid #e0e6d6;align-items:center;min-height:53px}
+.availability-room>strong{font-size:8px;font-weight:500}
+.availability-track{position:relative;height:34px;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(20% - 1px),#e1e7d8 calc(20% - 1px),#e1e7d8 20%)}
+.availability-track>span{position:absolute;top:4px;bottom:4px;font-size:8px;padding:6px 8px;background:#dce6ca;color:#526642;border-radius:2px;white-space:nowrap;overflow:hidden}
+.availability-room:nth-child(3) .availability-track>span{background:#b9c9a3}
+.availability-room:nth-child(4) .availability-track>span{background:#eee3d5;color:#846643}
+.calendar-key{display:flex;justify-content:end;gap:16px;font-size:7px;color:#76836b;margin-top:23px}
+.calendar-key>span{display:flex;align-items:center;gap:5px}
+.calendar-key i{width:7px;height:7px;background:#c4d2b3;display:inline-block}
+.calendar-key>span:last-child i{background:none;border:1px solid #bdc9af}
+.case-visual>.surface-system{width:800px;max-width:100%}
+@media(max-width:1100px){.story-screen-title p{font-size:21px}.story-screen-body{padding-inline:20px}.reservation-row{gap:10px}.reservation-row strong{font-size:8px}.reservation-row small{font-size:6px}.availability-dates{grid-template-columns:83px repeat(5,1fr)}.availability-room{grid-template-columns:83px 1fr}.availability-track>span{font-size:7px}.reservation-footnote .micro{font-size:4px}}
+@media(max-width:680px){.story-screen{min-height:390px}.story-screen-masthead{padding:20px 17px 0;gap:13px}.story-screen-masthead .stay-logo{font-size:29px;margin:0}.story-screen-masthead>.micro{font-size:6px}.story-screen-body{padding:24px 17px 19px}.story-screen-title{display:block;margin-bottom:24px}.story-screen-title p{font-size:24px;line-height:1.2;margin-top:9px;max-width:230px}.story-screen-title .micro{font-size:6px}.story-date{display:block;font-size:6px;margin-top:10px}.reservation-summary{gap:12px;padding-bottom:16px;margin-bottom:16px}.reservation-summary>span{font-size:6px;line-height:1.7}.reservation-summary b{font-size:25px;margin-top:5px}.reservation-labels{font-size:5px;grid-template-columns:1.35fr .65fr .65fr;gap:8px}.reservation-row{grid-template-columns:1.35fr .65fr .65fr;gap:8px;font-size:6px;padding-block:13px}.reservation-row>div{gap:7px}.reservation-row .guest-initial{width:22px;height:22px;font-size:6px}.reservation-row strong{font-size:7px}.reservation-row small{font-size:6px}.reservation-row .confirmed,.pending-status{font-size:5px;padding:3px}.reservation-footnote{font-size:6px;margin-top:17px}.reservation-footnote .micro{font-size:4px}.availability-dates{grid-template-columns:77px repeat(5,1fr);gap:5px;font-size:8px}.availability-dates>span:first-child{font-size:5px}.availability-room{grid-template-columns:77px 1fr;gap:5px;min-height:48px}.availability-room>strong{font-size:7px}.availability-track>span{font-size:6px;padding-inline:5px}.calendar-key{font-size:6px;margin-top:18px}.case-visual>.surface-system{max-width:100%}.case-visual .flagship-study .perspective-stage{min-height:390px}}

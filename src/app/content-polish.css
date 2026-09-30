@@ -1,0 +1,38 @@
+/* Targeted reading and spacing refinements within the existing design. */
+.career-period{font-size:12px;line-height:1.6;font-variant-numeric:tabular-nums;color:var(--ink)}
+.career-stage{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;min-height:19px}
+.career-current{display:inline-flex;align-items:center;gap:5px;color:#52643d;font-size:9px;font-weight:650;letter-spacing:.06em}
+.career-current:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--system)}
+.career-field{font-size:13px;line-height:1.5;color:var(--ink);margin:-5px 0 10px}
+.career-trigger strong{max-width:200px}.career-organisation{font-size:12px;line-height:1.65}
+.career-detail-field{display:block;font-size:14px;letter-spacing:0;line-height:1.6;color:var(--muted);margin-top:5px}
+.career-detail .career-full-organisation{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.career-journey{padding-top:42px}.career-line{margin-bottom:26px}.career-detail{min-height:0;padding-block:24px}.journey-handoff{padding-top:28px}
+.career-trigger:hover strong,.career-trigger:focus-visible strong{color:var(--orange-dark)}
+.career-trigger:focus-visible{outline:2px solid var(--orange);outline-offset:7px}
+.professional-experience{padding-bottom:50px}.experience-intro{margin-bottom:26px}.professional-row{padding-block:25px}
+.professional-content>p{margin-top:14px}.career-progression{margin-top:20px;gap:12px}
+.capabilities-section{padding-top:55px;padding-bottom:35px}.under-surface{margin-top:45px;padding-top:35px;padding-bottom:15px}
+.technical-axis{margin-top:20px}.capability-panel-inner>p{line-height:1.75}
+.refined-work .sample-note{font-size:12px;line-height:1.7;gap:8px 15px;background:transparent;border-left:0;padding:0;color:var(--muted)}
+.refined-work .sample-note>span{font-size:9px;letter-spacing:.08em;color:var(--muted)}
+.example-inline{font-size:9px;letter-spacing:.06em}.case-header .sample-note{font-size:12px;background:transparent;border-left:0;padding-left:0}
+.case-chapter h2{margin-bottom:18px}.case-chapter .case-reflection{font-size:14px;color:var(--muted);margin-top:18px;line-height:1.8}
+.case-reflection>span{display:block;font-size:10px;letter-spacing:.08em;margin-bottom:6px;color:var(--ink)}
+.professional-links a{min-height:44px;display:inline-flex;align-items:center}
+@media(min-width:761px) and (min-height:700px) and (prefers-reduced-motion:no-preference){.making-process{min-height:185vh}}
+@media(max-width:1000px) and (min-width:761px){.career-period{font-size:11px}.career-organisation{font-size:11px}.career-field{font-size:12px}.career-current{font-size:8px}}
+@media(max-width:760px){
+ .career-journey{padding-top:27px}.career-period{font-size:12px}.career-trigger strong{max-width:none}.career-field{font-size:14px;margin:-1px 0 8px}.career-stage{min-height:0}.career-current{font-size:10px}.career-organisation{font-size:12px}
+ .career-milestone{margin-bottom:23px}.career-mobile-detail{margin-top:4px}.career-mobile-detail .career-full-organisation{font-weight:600;color:var(--ink)}.journey-handoff{padding-top:20px}
+ .capabilities-section{padding-top:32px;padding-bottom:20px}.under-surface{margin-top:30px;padding-top:24px;padding-bottom:0}.professional-experience{padding-bottom:32px}.professional-row{padding-block:22px}
+ .process-mobile{margin-top:27px}.process-mobile-step{padding-bottom:28px}.process-mobile-step>p{margin-bottom:17px}.process-mobile h3{margin-bottom:10px}.process-handoff{padding-bottom:14px}
+ .refined-work .sample-note{font-size:11px}.case-chapter .case-reflection{font-size:13px}
+}
+/* One career section carries education, responsibilities and role-specific tools. */
+.career-journey{padding-bottom:38px}
+.career-role-tools{margin-top:20px}
+.career-role-tools>.micro{font-size:10px;color:var(--muted);letter-spacing:.08em}
+.career-role-tools ul{display:flex;flex-wrap:wrap;list-style:none;gap:6px 18px;margin:10px 0 0;padding:0;font-size:13px;line-height:1.7;color:var(--system)}
+.career-role-tools li:not(:last-child):after{content:" /";margin-left:14px;color:var(--line)}
+@media(max-width:760px){.career-journey{padding-bottom:26px}.career-role-tools{margin-top:9px;padding-bottom:12px}.career-role-tools ul{font-size:12px;gap:5px 12px}.career-role-tools li:not(:last-child):after{margin-left:9px}}
