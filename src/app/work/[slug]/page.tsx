@@ -8,6 +8,7 @@ import { FypProjectPreview } from "@/components/fyp-project-preview";
 import { ProjectScreenshot } from "@/components/project-screenshot";
 import { Arrow } from "@/components/icons";
 import { Contact } from "@/components/contact";
+import { withBasePath } from "@/lib/site-path";
 
 export function generateStaticParams() { return projects.map(project => ({ slug: project.slug })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -29,7 +30,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       {(project.liveUrl || project.sourceUrl) && <div className="case-links">{project.liveUrl && <a className="primary-button" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Visit project <Arrow diagonal/></a>}{project.sourceUrl && <a className="text-link" href={project.sourceUrl} target="_blank" rel="noopener noreferrer">View source <Arrow diagonal/></a>}</div>}
     </section>
     <div className={`case-visual visual-${project.visual}`}>{project.visual === "booking" ? <SurfaceSystem project={project}/> : project.image ? <ProjectScreenshot image={project.image} alt={project.imageAlt || project.name}/> : project.preview === "fyp" ? <FypProjectPreview/> : <ProductPreview variant={project.visual}/>}</div>
-    {!!project.gallery?.length && <details className="case-gallery-disclosure wrap"><summary>More screens <span aria-hidden="true">+</span></summary><div className="case-gallery">{project.gallery.map(screen=><a className="case-gallery-screen" key={screen.image} href={screen.image} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size: ${screen.imageAlt}`}><ProjectScreenshot image={screen.image} alt={screen.imageAlt} caption={screen.caption} lazy/></a>)}</div></details>}
+    {!!project.gallery?.length && <details className="case-gallery-disclosure wrap"><summary>More screens <span aria-hidden="true">+</span></summary><div className="case-gallery">{project.gallery.map(screen=><a className="case-gallery-screen" key={screen.image} href={withBasePath(screen.image)} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size: ${screen.imageAlt}`}><ProjectScreenshot image={screen.image} alt={screen.imageAlt} caption={screen.caption} lazy/></a>)}</div></details>}
     <section className="case-body wrap" aria-label="Project details">
       <div className="case-chapter"><h2>The problem.</h2><p>{project.problem}</p></div>
       {project.contribution && <div className="case-chapter"><h2>My contribution.</h2><p>{project.contribution}</p></div>}

@@ -5,6 +5,7 @@ import { projects, type Project } from "@/data/content";
 import { ProjectGallery } from "./project-gallery";
 import { Arrow } from "./icons";
 import { EdgeScrollIndicator } from "./edge-scroll-indicator";
+import { withoutBasePath } from "@/lib/site-path";
 
 type ProjectDialogContextValue = { openProject: (slug: string, initialImage?: number) => void };
 const ProjectDialogContext = createContext<ProjectDialogContextValue | null>(null);
@@ -90,7 +91,7 @@ export function ProjectDialogProvider({ children }: { children: ReactNode }) {
       if (!anchor || anchor.hasAttribute("download") || (anchor.target && anchor.target !== "_self")) return;
       const url = new URL(anchor.href, window.location.href);
       if (url.origin !== window.location.origin) return;
-      const match = url.pathname.match(/^\/work\/([^/]+)\/?$/);
+      const match = withoutBasePath(url.pathname).match(/^\/work\/([^/]+)\/?$/);
       if (!match) return;
       let slug: string;
       try { slug = decodeURIComponent(match[1]); } catch { return; }

@@ -21,17 +21,17 @@ Read **EDIT-CONTENT.md** for examples and a simple guide. VS Code offers suggest
 
 The included projects are **clearly labeled examples**, with illustrative interfaces and sample data. None uses the projects from your earlier portfolio. Replace each example with real work and change `isExample` to `false` when the content is accurate. There are no invented clients, employment dates, testimonials, or outcome metrics. The combined career section uses your supplied education and employment history. Its `career` entries include responsibilities and tools, independently of the sample project collection.
 
-## Verify and build
+## GitHub Pages deployment
 
-```powershell
-npm run typecheck
-npm run build
-npm start
-```
+The site is exported as static files for GitHub Pages. Pushing to `main` triggers `.github/workflows/deploy-next.yml`, which creates and deploys the `out/` directory. In the repository's **Settings → Pages**, select **GitHub Actions** as the source.
 
-Build again after changing content for a production deployment. The home page and project routes are prerendered. Most content is rendered on the server. Small client components handle navigation, product stories, capability disclosures, process highlighting, the optional experiment, and email copying.
+The workflow supplies `NEXT_PUBLIC_BASE_PATH=/Portfolio` and `NEXT_PUBLIC_SITE_URL=https://crowford25.github.io/Portfolio/`. Next.js uses the same base path for routes, image URLs and public-file links. Local development keeps an empty base path. The site is served at `https://crowford25.github.io/Portfolio/`.
 
-Before deploying, set `NEXT_PUBLIC_SITE_URL` to your real public URL in your hosting environment (or copy `.env.example` to `.env.local`). This makes the generated social preview image URL point to the correct domain.
+Keep screenshot paths in `content/portfolio.json` as `/projects/...`. Components apply the deployment prefix through `src/lib/site-path.ts`; do not manually add `/Portfolio` to each content entry. External URLs and on-page anchors are preserved. Next.js Link components apply the base path automatically.
+
+The social preview is a committed 1200×630 PNG at `public/og-image.png`, with an editable source at `assets/og-image.svg`. Open Graph and Twitter metadata point directly to this file. There is no ImageResponse route or image-generation server required on GitHub Pages. If you change the social card design or profile text, update the PNG too. The deployed image URL is `https://crowford25.github.io/Portfolio/og-image.png`.
+
+The home page and project routes are prerendered; interactive React components still run in the browser. `npm start` is not used for this static-export deployment. Only README.md is published among Markdown files; other local guides remain ignored.
 
 ## Structure
 

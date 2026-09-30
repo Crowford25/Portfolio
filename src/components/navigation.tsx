@@ -4,13 +4,14 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { profile } from "@/data/content";
+import { withBasePath } from "@/lib/site-path";
 
 const links = [["Work", "work"], ["About", "about"], ["Career", "career"], ["Contact", "contact"]];
 
 function SecondaryLinks({ onNavigate }: { onNavigate?: () => void }) {
   return <>
     {profile.linkedinUrl && <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer" onClick={onNavigate}>LinkedIn</a>}
-    {profile.resumeUrl && <a href={profile.resumeUrl} download="Wong-Chee-Chun-Resume.pdf" onClick={onNavigate}>Download résumé</a>}
+    {profile.resumeUrl && <a href={withBasePath(profile.resumeUrl)} download="Wong-Chee-Chun-Resume.pdf" onClick={onNavigate}>Download résumé</a>}
   </>;
 }
 

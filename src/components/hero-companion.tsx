@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { createPortal } from "react-dom";
 import { CompanionArtwork } from "./companion-artwork";
 import { profile } from "@/data/content";
+import { withBasePath } from "@/lib/site-path";
 import { assistantConfig, answerPortfolioQuestion, type PortfolioAnswer } from "@/lib/portfolio-assistant";
 
 type Message = PortfolioAnswer & { id: number; role: "assistant" | "visitor" };
@@ -206,7 +207,7 @@ export function HeroCompanion() {
             {messages.map(message => <li key={message.id} className={`companion-message companion-message-${message.role}`}>
               <span className="companion-speaker">{message.role === "assistant" ? "Companion" : "You"}</span>
               <p>{message.text}</p>
-              {!!message.links?.length && <div className="companion-answer-links">{message.links.map(link => <a key={`${link.label}-${link.href}`} href={link.href} target={/^https?:\/\//i.test(link.href) ? "_blank" : undefined} rel={/^https?:\/\//i.test(link.href) ? "noopener noreferrer" : undefined} onClick={() => { if (link.href.startsWith("/") || link.href.startsWith("#")) setOpen(false); }}>{link.label}<span aria-hidden="true">↗</span></a>)}</div>}
+              {!!message.links?.length && <div className="companion-answer-links">{message.links.map(link => <a key={`${link.label}-${link.href}`} href={withBasePath(link.href)} target={/^https?:\/\//i.test(link.href) ? "_blank" : undefined} rel={/^https?:\/\//i.test(link.href) ? "noopener noreferrer" : undefined} onClick={() => { if (link.href.startsWith("/") || link.href.startsWith("#")) setOpen(false); }}>{link.label}<span aria-hidden="true">↗</span></a>)}</div>}
             </li>)}
           </ol>
         </div>

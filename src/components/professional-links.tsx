@@ -1,8 +1,9 @@
 import { profile } from "@/data/content";
+import { withBasePath } from "@/lib/site-path";
 
 export function ResumeLink({ download = true }: { download?: boolean }) {
   if (!profile.resumeUrl) return <span className="profile-link-pending">Résumé pending</span>;
-  return <a href={profile.resumeUrl} target={download ? undefined : "_blank"} rel={download ? undefined : "noopener noreferrer"} download={download ? "Wong-Chee-Chun-Resume.pdf" : undefined}>{download ? "Download résumé ↓" : "View résumé ↗"}</a>;
+  return <a href={withBasePath(profile.resumeUrl)} target={download ? undefined : "_blank"} rel={download ? undefined : "noopener noreferrer"} download={download ? "Wong-Chee-Chun-Resume.pdf" : undefined}>{download ? "Download résumé ↓" : "View résumé ↗"}</a>;
 }
 
 export function ProfessionalLinks({ placement = "contact" }: { placement?: "hero" | "career" | "contact" }) {

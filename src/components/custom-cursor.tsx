@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { withoutBasePath } from "@/lib/site-path";
 
 export function CustomCursor() {
   const cursor = useRef<HTMLDivElement>(null);
@@ -28,7 +29,7 @@ export function CustomCursor() {
       const requested = target?.closest<HTMLElement>("[data-cursor]")?.dataset.cursor?.toLowerCase();
       label = requested === "drag" ? "Drag" : requested === "view" ? "View" : "";
       const link = target?.closest<HTMLAnchorElement>("a");
-      if (!label && link) label = link.pathname.startsWith("/work/") && link.origin === location.origin ? "View" : link.target === "_blank" ? "↗" : "";
+      if (!label && link) label = withoutBasePath(link.pathname).startsWith("/work/") && link.origin === location.origin ? "View" : link.target === "_blank" ? "↗" : "";
       kind = label ? "label" : interactive ? "link" : "default";
       x = event.clientX; y = event.clientY;
       if (!frame) frame = requestAnimationFrame(() => {

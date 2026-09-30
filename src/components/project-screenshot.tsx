@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/site-path";
+
 type ProjectScreenshotProps = {
   image: string;
   alt: string;
@@ -7,7 +9,7 @@ type ProjectScreenshotProps = {
 
 export function ProjectScreenshot({ image, alt, caption, lazy = false }: ProjectScreenshotProps) {
   return <figure className="project-screenshot">
-    <img src={image} alt={alt} loading={lazy ? "lazy" : "eager"} className="custom-project-image" />
+    <img src={withBasePath(image)} alt={alt} loading={lazy ? "lazy" : "eager"} className="custom-project-image" />
     {caption && <figcaption>{caption}</figcaption>}
   </figure>;
 }

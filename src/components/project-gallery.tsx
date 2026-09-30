@@ -3,6 +3,7 @@
 import { useId, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import type { Project } from "@/data/content";
 import { getProjectScreens } from "@/lib/project-screens";
+import { withBasePath } from "@/lib/site-path";
 import { Architecture } from "./surface-system";
 import { ProductPreview } from "./product-preview";
 import { FypProjectPreview } from "./fyp-project-preview";
@@ -62,7 +63,7 @@ export function ProjectGallery({ project, initialIndex = 0, variant = "inline", 
     if (Date.now() - lastSwipe.current > 350) onExpand?.(index);
   }
 
-  const image = screen && <img key={screen.image} src={screen.image} alt={screen.imageAlt} className="project-gallery-image" draggable={false} loading={variant === "dialog" ? "eager" : "lazy"} decoding="async"/>;
+  const image = screen && <img key={screen.image} src={withBasePath(screen.image)} alt={screen.imageAlt} className="project-gallery-image" draggable={false} loading={variant === "dialog" ? "eager" : "lazy"} decoding="async"/>;
   return <section className={`project-gallery project-gallery-${variant} mode-${mode} ${zoomed ? "is-zoomed" : ""}`} aria-label={`${project.name} images`} onKeyDown={keyboard}>
     {hasSystem && <div className="project-gallery-perspective" role="group" aria-label="Project perspective">{(["surface", "system"] as const).map(value => <button key={value} type="button" aria-pressed={mode === value} aria-controls={`${id}-frame`} onClick={() => { setMode(value); setZoomed(false); }}>{value}</button>)}</div>}
     <div id={`${id}-frame`} className="project-gallery-frame" data-direction={direction > 0 ? "next" : "previous"} onPointerDown={beginSwipe} onPointerMove={trackSwipe} onPointerUp={endSwipe} onPointerCancel={() => { origin.current = null; }}>

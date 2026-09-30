@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Wong Chee Chun — Software Engineer &amp; Creative Developer</title>
+  <rect width="1200" height="630" fill="#f7f6f2" />
+  <g fill="#262824" font-family="Arial, Helvetica, sans-serif">
+    <text x="70" y="94" font-size="24">Wong Chee Chun</text>
+    <text x="1130" y="94" text-anchor="end" fill="#df4927" font-size="24">cc</text>
+    <g font-size="92" letter-spacing="-5">
+      <text x="70" y="264">From surface</text>
+      <text x="70" y="360">to <tspan fill="#df4927">system.</tspan></text>
+    </g>
+    <path d="M70 437H1130" fill="none" stroke="#d9dbd2" />
+    <text x="70" y="487" font-size="23">Software Engineer &amp; Creative Developer</text>
+  </g>
+</svg>

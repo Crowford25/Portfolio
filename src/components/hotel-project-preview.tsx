@@ -1,4 +1,6 @@
-const propertyImage = "/projects/aureum-stays/the-opaline-residence-1.png";
+import { withBasePath } from "@/lib/site-path";
+
+const propertyImage = withBasePath("/projects/aureum-stays/the-opaline-residence-1.png");
 
 function AureumHeader({ staff = false }: { staff?: boolean }) {
   return (
