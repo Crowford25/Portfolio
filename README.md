@@ -19,7 +19,25 @@ Open http://localhost:3000. If port 3000 is occupied, use `npm run dev -- --port
 
 Read **EDIT-CONTENT.md** for examples and a simple guide. VS Code offers suggestions and descriptions for the content file using the included schema. You do not need to modify React components to add projects.
 
-The included projects are **clearly labeled examples**, with illustrative interfaces and sample data. None uses the projects from your earlier portfolio. Replace each example with real work and change `isExample` to `false` when the content is accurate. There are no invented clients, employment dates, testimonials, or outcome metrics. The combined career section uses your supplied education and employment history. Its `career` entries include responsibilities and tools, independently of the sample project collection.
+The main work section contains Aureum Stays and Final Year Project. Aureum Stays is a solo project; the Final Year Project is a team project with responsibility for the Client module. The career section uses the supplied education and employment history. Keep new claims and contributions factual.
+
+## Landing-page showcase
+
+The former Interface studies section is replaced by a looping, globe-inspired cover carousel of AURELIA BATH, NOIR Auto Detail, KŌRI and PEKOLAND. Drag, previous/next controls and the keyboard let visitors explore it. Automatic motion can be paused, stops during interaction, and respects reduced motion. Clicking a cover opens a dialog with a Desktop/Mobile preview.
+
+Edit **`content/landing-projects.json`** to change names, copy, covers, technology lists, preview paths and optional public links. Each entry needs a unique `slug`. Add another entry with the same fields to extend the carousel; no component change is needed.
+
+- `cover` / `coverAlt`: the promotional cover image and its description.
+- `previewUrl`: a local source-adapted demo under `public/landing-previews/`.
+- `liveUrl`: leave empty until the original project has a real published URL; supplying one adds a live-project link.
+- `summary` / `highlights` / `stack`: accurate descriptions of the original project.
+- `previewNote`: explain the scope of the demonstration.
+
+The covers are original generated artwork, not screenshots. Assets are in `public/projects/landing-pages/`; exact prompts and the built-in generation mode are recorded in `assets/landing-cover-prompts.json`.
+
+The four previews adapt the original landing-page content, assets and design into lightweight demonstrations. They are not complete deployments or exact captures of the original applications. Interactions are local demonstrations and do not submit orders, bookings or contact forms. PEKOLAND is an unofficial fan project.
+
+Each `public/landing-previews/<slug>/index.html` uses relative local assets so it can be embedded on GitHub Pages. The dialog isolates the demo in a sandboxed iframe and preserves the portfolio page underneath. The original source projects are not modified. Edit the demo HTML if you want to update what visitors can explore, or supply a published `liveUrl`.
 
 ## GitHub Pages deployment
 
@@ -38,6 +56,10 @@ The home page and project routes are prerendered; interactive React components s
 | Location | Purpose |
 | --- | --- |
 | `content/portfolio.json` | Main editable content |
+| `content/landing-projects.json` | Landing-page carousel content and preview links |
+| `public/projects/landing-pages/` | Generated landing-page covers |
+| `public/landing-previews/` | Source-adapted interactive demo pages |
+| `src/components/landing-showcase.tsx` | Looping cover carousel and preview dialog |
 | `content/project-template.json` | A blank project to copy into the projects list |
 | `content/portfolio.schema.json` | Editor hints for the content |
 | `public/projects/` | Your screenshots |

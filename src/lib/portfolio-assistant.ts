@@ -1,5 +1,6 @@
 import savedConfig from "../../content/assistant.json";
 import { portfolio, profile, projects, whatsappUrl, type Career } from "@/data/content";
+import { landingProjects } from "@/data/landing-projects";
 
 export type PortfolioAnswer = {
   text: string;
@@ -98,6 +99,18 @@ export function answerPortfolioQuestion(question: string): PortfolioAnswer {
     return response("You’re welcome! You can ask about his work, studies, skills or how to get in touch.");
   }
 
+  const landingProject = landingProjects.find((project) =>
+    [project.name, project.slug, project.category].some((name) => containsPhrase(query, name)));
+  if (landingProject) {
+    const detail = has("stack", "technologies", "technology", "tools", "framework", "built with")
+      ? `The source project uses ${landingProject.stack.join(", ")}.`
+      : landingProject.summary;
+    return response(`${landingProject.name}: ${detail}\n\nThe portfolio includes a source-adapted interactive demo.`, [{ label: "Explore landing pages", href: "/#landing-pages" }]);
+  }
+  if (has("landing page", "landing pages", "website examples", "website prototypes", "interface studies")) {
+    return response(`Landing-page projects: ${landingProjects.map((project) => project.name).join(", ")}. Open a cover to explore its interactive design demo.`, [{ label: "Explore landing pages", href: "/#landing-pages" }]);
+  }
+
   // Unknown commercial or personal details should not be inferred from broad work keywords.
   if (has("salary", "rates", "rate", "pricing", "price", "budget", "notice period", "visa", "citizenship", "age", "birthday", "married", "address", "gpa", "cgpa", "grade", "grades", "certification", "certifications")) {
     return fallback();
@@ -188,6 +201,7 @@ export function answerPortfolioQuestion(question: string): PortfolioAnswer {
     const realProjects = projects.filter((project) => !project.isExample);
     const parts = [
       ...(realProjects.length ? [`Portfolio projects: ${realProjects.map((project) => project.name).join(", ")}.`] : []),
+      ...(landingProjects.length ? [`Landing-page prototypes: ${landingProjects.map((project) => project.name).join(", ")}. Each has an interactive design preview.`] : []),
       ...(samples.length ? [`The portfolio includes illustrative sample studies: ${samples.map((project) => project.name).join(", ")}. These samples are not presented as completed client work; real contributions and outcomes have not been added yet.`] : []),
     ];
     return response(parts.join("\n\n"), [{ label: "Browse projects", href: "/#work" }]);

@@ -1,0 +1,54 @@
+[
+  {
+    "slug": "bathroom",
+    "name": "AURELIA BATH",
+    "category": "Bath & interiors",
+    "summary": "A calm bathroom product showcase, pairing interior imagery with a before-and-after story.",
+    "cover": "/projects/landing-pages/bathroom-cover.png",
+    "coverAlt": "Illustrated cover for the AURELIA BATH bathroom landing-page prototype.",
+    "previewUrl": "/landing-previews/bathroom/index.html",
+    "liveUrl": "",
+    "stack": ["Next.js", "React", "GSAP", "Lenis"],
+    "highlights": ["Bathroom collection presentation", "Interior-led visual storytelling", "Before-and-after comparison"],
+    "previewNote": "Source-adapted design demo using the original project's content and imagery. The cover is promotional artwork; this preview is not a screenshot or a live customer site."
+  },
+  {
+    "slug": "detailing",
+    "name": "NOIR Auto Detail",
+    "category": "Automotive services",
+    "summary": "A dark, image-led detailing concept built around paint care, services and vehicle-based packages.",
+    "cover": "/projects/landing-pages/detailing-cover.png",
+    "coverAlt": "Illustrated cover for the NOIR Auto Detail automotive landing-page prototype.",
+    "previewUrl": "/landing-previews/detailing/index.html",
+    "liveUrl": "",
+    "stack": ["Next.js", "React", "TypeScript"],
+    "highlights": ["Vehicle-based packages", "Paint-correction imagery", "Service-led page structure"],
+    "previewNote": "Source-adapted design demo using the original project's content and imagery. Package interactions are demonstrations and do not make bookings."
+  },
+  {
+    "slug": "kori",
+    "name": "KŌRI",
+    "category": "Café & hospitality",
+    "summary": "An editorial Japanese café concept centred on coffee, craft and the ritual of slowing down.",
+    "cover": "/projects/landing-pages/kori-cover.png",
+    "coverAlt": "Illustrated coffee cover for the KŌRI Japanese café landing-page prototype.",
+    "previewUrl": "/landing-previews/kori/index.html",
+    "liveUrl": "",
+    "stack": ["React", "TypeScript", "Vinext"],
+    "highlights": ["Coffee and craft narrative", "Signature drink selection", "Warm editorial art direction"],
+    "previewNote": "Source-adapted design demo using the original project's content and imagery. Drink selection illustrates the interface and does not place an order."
+  },
+  {
+    "slug": "pekora",
+    "name": "PEKOLAND",
+    "category": "Interactive fan experience",
+    "summary": "A playful Usada Pekora fan project with character-led scenes and a colourful interactive world.",
+    "cover": "/projects/landing-pages/pekora-cover.png",
+    "coverAlt": "Fan-art cover for the PEKOLAND interactive landing-page project.",
+    "previewUrl": "/landing-previews/pekora/index.html",
+    "liveUrl": "",
+    "stack": ["JavaScript", "Three.js", "GSAP"],
+    "highlights": ["Character-led visual scenes", "Playful scene selection", "Fan-project art direction"],
+    "previewNote": "Source-adapted demo of a fan-made project, with the original character imagery. This is an unofficial fan experience, not a commissioned or official brand website."
+  }
+]

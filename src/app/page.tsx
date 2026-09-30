@@ -6,10 +6,10 @@ import { FlagshipProject, SecondaryProject } from "@/components/project-stories"
 import { Capabilities } from "@/components/capabilities";
 import { Experiment } from "@/components/experiment";
 import { Contact } from "@/components/contact";
+import { LandingShowcase } from "@/components/landing-showcase";
 
 export default function Home() {
   const work = projects.filter(project => !project.isExample);
-  const studies = projects.filter(project => project.isExample);
   return <main id="main" className="refined-home calm-home">
     <section className="hero refined-hero wrap">
       <div className="hero-grid">
@@ -28,7 +28,7 @@ export default function Home() {
       {work[0] && <FlagshipProject project={work[0]}/>}
       {work.slice(1).map((project,i)=><SecondaryProject key={project.slug} project={project} index={i+1}/>)}
       {!work.length && <p className="empty-work">New work is taking shape.</p>}
-      {!!studies.length && <details className="project-sketchbook"><summary>Interface studies <span aria-hidden="true">+</span></summary><p className="sketchbook-note">A few illustrative experiments.</p>{studies.map((project,i)=><SecondaryProject key={project.slug} project={project} index={work.length+i}/>)}</details>}
+      <LandingShowcase/>
     </section>
 
     <section id="about" className="about-section refined-about"><div className="wrap"><div className="section-top"><span className="eyebrow">ABOUT</span></div><div className="about-grid"><div className="about-side"><span className="about-monogram" aria-hidden="true">cc</span></div><div className="about-copy"><h2>Curious about<br /><em>the whole picture.</em></h2><p>{profile.approach}</p></div></div></div></section>
