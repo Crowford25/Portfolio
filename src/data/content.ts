@@ -2,7 +2,7 @@ import content from "../../content/portfolio.json";
 export type Project = {
   slug: string; title: string; name: string; category: string; year: string;
   isExample: boolean; visual: string; image: string; imageAlt: string;
-  preview?: "hotel" | "fyp"; aliases?: string[];
+  preview?: string; aliases?: string[];
   homepageSummary?: string;
   imageCaption?: string;
   gallery?: { image: string; imageAlt: string; caption?: string }[];
