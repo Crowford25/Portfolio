@@ -23,5 +23,6 @@
     document.querySelectorAll('[data-vehicle]').forEach(function(button){button.addEventListener('click',function(){var index=Number(button.dataset.vehicle);document.querySelectorAll('[data-vehicle]').forEach(function(item){item.setAttribute('aria-pressed',String(item===button))});document.querySelectorAll('[data-prices]').forEach(function(price){price.textContent=price.dataset.prices.split(',')[index]});document.getElementById('vehicle-note').textContent='Showing '+button.textContent+' sample prices from the original prototype.'})});
     document.querySelector('.compare input').addEventListener('input',function(){this.parentElement.style.setProperty('--split',this.value+'%')});
   </script>
+  <script src="../preview-frame.js"></script>
 </body>
 </html>

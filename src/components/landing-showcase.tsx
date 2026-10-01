@@ -27,6 +27,11 @@ export function LandingShowcase() {
   const [closing, setClosing] = useState(false);
   const [viewport, setViewport] = useState<"desktop" | "mobile">("desktop");
   const [frameReady, setFrameReady] = useState(false);
+  const [phonePreview, setPhonePreview] = useState(false);
+  const [previewHeight, setPreviewHeight] = useState(0);
+  const previewFrame = useRef<HTMLIFrameElement>(null);
+  const previewScroll = useRef<HTMLDivElement>(null);
+  const synchronizePreview = useRef<() => void>(() => {});
   const dialog = useRef<HTMLDialogElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const returnFocus = useRef<HTMLElement | null>(null);
@@ -126,6 +131,67 @@ export function LandingShowcase() {
 
   useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const phone = window.matchMedia("(max-width: 650px)");
+    const scroll = previewScroll.current;
+    let geometryFrame = 0;
+    const visibleArea = () => {
+      const frame = previewFrame.current;
+      if (!scroll || !frame) return { visibleTop: 0, visibleHeight: window.innerHeight };
+      return {
+        visibleTop: Math.max(0, scroll.getBoundingClientRect().top - frame.getBoundingClientRect().top),
+        visibleHeight: scroll.clientHeight,
+      };
+    };
+    const synchronize = () => {
+      setPhonePreview(phone.matches);
+      if (!phone.matches) setPreviewHeight(0);
+      previewFrame.current?.contentWindow?.postMessage({
+        type: "portfolio:preview-mode",
+        expanded: phone.matches,
+        viewportHeight: window.innerHeight,
+        ...visibleArea(),
+      }, "*");
+    };
+    const trackVisibleArea = () => {
+      if (!phone.matches || geometryFrame) return;
+      geometryFrame = requestAnimationFrame(() => {
+        geometryFrame = 0;
+        previewFrame.current?.contentWindow?.postMessage({ type: "portfolio:preview-viewport", ...visibleArea() }, "*");
+      });
+    };
+    const receive = (event: MessageEvent) => {
+      if (!phone.matches || event.source !== previewFrame.current?.contentWindow) return;
+      const message = event.data;
+      if (!message || typeof message !== "object") return;
+      if (message.type === "portfolio:preview-size" && typeof message.height === "number" && Number.isFinite(message.height) && message.height > 0 && message.height <= 60000) {
+        setPreviewHeight(Math.ceil(message.height));
+      }
+      if (message.type === "portfolio:preview-anchor" && typeof message.top === "number" && Number.isFinite(message.top) && message.top >= 0 && message.top <= 60000) {
+        const scroll = previewScroll.current;
+        const frame = previewFrame.current;
+        if (!scroll || !frame) return;
+        const top = frame.getBoundingClientRect().top - scroll.getBoundingClientRect().top + scroll.scrollTop + message.top - 12;
+        scroll.scrollTo({ top, behavior: motion.current.reduced ? "instant" : "smooth" });
+      }
+    };
+    synchronizePreview.current = synchronize;
+    synchronize();
+    window.addEventListener("message", receive);
+    window.addEventListener("resize", synchronize, { passive: true });
+    scroll?.addEventListener("scroll", trackVisibleArea, { passive: true });
+    phone.addEventListener("change", synchronize);
+    return () => {
+      synchronizePreview.current = () => {};
+      window.removeEventListener("message", receive);
+      window.removeEventListener("resize", synchronize);
+      scroll?.removeEventListener("scroll", trackVisibleArea);
+      cancelAnimationFrame(geometryFrame);
+      phone.removeEventListener("change", synchronize);
+    };
+  }, [isOpen, selected?.slug]);
+
   const closePreview = useCallback(() => {
     if (closeTimer.current) return;
     const finish = () => { closeTimer.current = null; dialog.current?.close(); setSelected(null); setClosing(false); };
@@ -138,7 +204,9 @@ export function LandingShowcase() {
     if (performance.now() < drag.current.suppressUntil) return;
     if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null; }
     returnFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    setClosing(false); setFrameReady(false); setViewport("desktop"); setSelected(project);
+    setClosing(false); setFrameReady(false); setPreviewHeight(0);
+    setPhonePreview(window.matchMedia("(max-width: 650px)").matches);
+    setViewport("desktop"); setSelected(project);
   }
 
   function move(direction: number) {
@@ -243,10 +311,13 @@ export function LandingShowcase() {
             <div className="landing-preview-viewport" aria-label="Preview width"><button type="button" aria-pressed={viewport === "desktop"} onClick={() => setViewport("desktop")}>Desktop</button><button type="button" aria-pressed={viewport === "mobile"} onClick={() => setViewport("mobile")}>Mobile</button></div>
             <button type="button" className="landing-preview-close" onClick={closePreview} autoFocus aria-label={`Close ${selected.name} preview`}>Close <span aria-hidden="true">×</span></button>
           </header>
-          <div className="landing-preview-scroll">
+          <div className="landing-preview-scroll" ref={previewScroll}>
             <div className={`landing-preview-canvas is-${viewport}`}>
               {!frameReady && <p className="landing-preview-loading" role="status">Opening the page…</p>}
-              <iframe key={selected.slug} src={withBasePath(selected.previewUrl)} title={`${selected.name} — interactive landing page preview`} sandbox="allow-scripts" referrerPolicy="no-referrer" onLoad={() => setFrameReady(true)} />
+              <iframe ref={previewFrame} key={selected.slug} src={withBasePath(selected.previewUrl)} title={`${selected.name} — interactive landing page preview`} sandbox="allow-scripts" referrerPolicy="no-referrer"
+                data-expanded={phonePreview && previewHeight > 0 ? "true" : undefined}
+                style={phonePreview && previewHeight > 0 ? { height: previewHeight } : undefined}
+                onLoad={() => { setFrameReady(true); synchronizePreview.current(); }} />
             </div>
             <div className="landing-preview-details">
               <div className="landing-preview-summary"><p>{selected.summary}</p><p id="landing-preview-note" className="landing-preview-note">{selected.previewNote}</p>{selected.liveUrl && <a href={selected.liveUrl} target="_blank" rel="noreferrer noopener">Visit live project <Arrow /></a>}</div>

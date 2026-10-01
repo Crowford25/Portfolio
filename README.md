@@ -23,7 +23,7 @@ The main work section contains Aureum Stays and Final Year Project. Aureum Stays
 
 ## Landing-page showcase
 
-The former Interface studies section is replaced by a looping, globe-inspired cover carousel of AURELIA BATH, NOIR Auto Detail, KŌRI and PEKOLAND. Drag, previous/next controls and the keyboard let visitors explore it. Automatic motion can be paused, stops during interaction, and respects reduced motion. Clicking a cover opens a dialog with a Desktop/Mobile preview.
+The former Interface studies section is replaced by a looping, globe-inspired cover carousel of AURELIA BATH, NOIR Auto Detail, KŌRI, Crumb & Hearth and PEKOLAND. Drag, previous/next controls and the keyboard let visitors explore it. Automatic motion can be paused, stops during interaction, and respects reduced motion. Clicking a cover opens a dialog with a Desktop/Mobile preview.
 
 Edit **`content/landing-projects.json`** to change names, copy, covers, technology lists, preview paths and optional public links. Each entry needs a unique `slug`. Add another entry with the same fields to extend the carousel; no component change is needed.
 
@@ -35,7 +35,7 @@ Edit **`content/landing-projects.json`** to change names, copy, covers, technolo
 
 The covers are original generated artwork, not screenshots. Assets are in `public/projects/landing-pages/`; exact prompts and the built-in generation mode are recorded in `assets/landing-cover-prompts.json`.
 
-The four previews adapt the original landing-page content, assets and design into lightweight demonstrations. They are not complete deployments or exact captures of the original applications. Interactions are local demonstrations and do not submit orders, bookings or contact forms. PEKOLAND is an unofficial fan project.
+The five previews adapt the original landing-page content, assets and design into lightweight demonstrations. They are not complete deployments or exact captures of the original applications. Interactions are local demonstrations and do not submit orders, bookings or contact forms. Crumb & Hearth is an illustrative bakery brand with sample products and prices; its preview includes product filters, a baking story and an in-memory demo basket. PEKOLAND is an unofficial fan project.
 
 Each `public/landing-previews/<slug>/index.html` uses relative local assets so it can be embedded on GitHub Pages. The dialog isolates the demo in a sandboxed iframe and preserves the portfolio page underneath. The original source projects are not modified. Edit the demo HTML if you want to update what visitors can explore, or supply a published `liveUrl`.
 

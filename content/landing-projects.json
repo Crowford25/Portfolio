@@ -39,6 +39,19 @@
     "previewNote": "Source-adapted design demo using the original project's content and imagery. Drink selection illustrates the interface and does not place an order."
   },
   {
+    "slug": "crumb-and-hearth",
+    "name": "Crumb & Hearth",
+    "category": "Bakery & café",
+    "summary": "A warm, editorial bakery concept with a browsable product collection, a baking story and a demo basket.",
+    "cover": "/projects/landing-pages/crumb-and-hearth-cover.png",
+    "coverAlt": "Promotional bakery cover with golden croissants and sourdough for the Crumb & Hearth landing-page prototype.",
+    "previewUrl": "/landing-previews/crumb-and-hearth/index.html",
+    "liveUrl": "",
+    "stack": ["Next.js", "React", "TypeScript", "CSS"],
+    "highlights": ["Product-category filters", "Five-stage baking story", "Interactive demo basket"],
+    "previewNote": "Source-adapted design demo of an illustrative bakery brand, using the original project imagery. Products and prices are sample content; the basket does not place an order."
+  },
+  {
     "slug": "pekora",
     "name": "PEKOLAND",
     "category": "Interactive fan experience",

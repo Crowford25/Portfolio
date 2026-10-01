@@ -27,6 +27,7 @@ import "./project-dialog.css";
 import "./scrollbars.css";
 import "./mobile-intro.css";
 import "./landing-showcase.css";
+import "./mobile-navigation.css";
 
 const siteUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000");
 const socialImageUrl = new URL(withBasePath("/og-image.png"), siteUrl).href;
